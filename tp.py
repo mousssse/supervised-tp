@@ -63,25 +63,29 @@ def preprocess():
         x = data_sample.drop('PINCP', axis=1)
         y = data_sample['PINCP']
 
-        # Standardise the data
-        scaler = StandardScaler()
-        x_scaled = scaler.fit_transform(x)
-
         # Additional steps on the full dataset
         if i == 0:
             sex_id = x.columns.get_loc('SEX') if 'SEX' in x.columns else None
             rac1p_id = x.columns.get_loc('RAC1P') if 'RAC1P' in x.columns else None
 
             # Create dictionaries to map standardized values to original values for SEX and RAC1P
-            for value, original_value in zip(x_scaled[:, sex_id], x['SEX']):
+            for value, original_value in zip(x[:, sex_id], x['SEX']):
                 sex_mapping[int(original_value)] = value
-            for value, original_value in zip(x_scaled[:, rac1p_id], x['RAC1P']):   
+            for value, original_value in zip(x[:, rac1p_id], x['RAC1P']):   
                 rac1p_mapping[value] = int(original_value)
 
         # Split train/test
         size = 0.2
         k = int(1/size)
-        splits.append(train_test_split(x_scaled, y, test_size=size, random_state=42))
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=size, random_state=42)
+
+        # Standardise the data
+        scaler = StandardScaler()
+        scaler.fit(x_train)
+        x_train_scaled = scaler.transform(x_train)
+        x_test_scaled = scaler.transform(x_test)
+
+        splits.append([x_train_scaled, x_test_scaled, y_train, y_test])
     
     return splits, k, sex_id, rac1p_id
     
