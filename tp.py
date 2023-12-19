@@ -8,6 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.feature_selection import r_regression
 from sklearn.inspection import permutation_importance
+from fairlearn.metrics import demographic_parity_difference, equalized_odds_difference
 
 class Logger:
     """To write both to the file and the terminal"""
@@ -53,53 +54,52 @@ def preprocess():
     # Divide features and labels back
     x = data_sample.drop('PINCP', axis=1)
     y = data_sample['PINCP']
-        
+
+    # Split train/test
+    size = 0.2
+    k = int(1/size)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=size, random_state=42)
+
+    # Saving sex and race indices
+    global sex_mapping_train, sex_mapping_test, rac1p_mapping_train, rac1p_mapping_test
+    sex_mapping_train = x_train['SEX'].map({1: 'Male', 2: 'Female'}).reset_index(drop=True)
+    sex_mapping_test = x_test['SEX'].map({1: 'Male', 2: 'Female'}).reset_index(drop=True)
+    rac1p_mapping_train = x_train['RAC1P'].map(rac1p_categories).reset_index(drop=True)
+    rac1p_mapping_test = x_test['RAC1P'].map(rac1p_categories).reset_index(drop=True)
+
     splits = []
-    for x_values in [x, x.drop('SEX', axis=1), x.drop('RAC1P', axis=1)]:
-        # Split train/test
-        size = 0.2
-        k = int(1/size)
-        x_train, x_test, y_train, y_test = train_test_split(x_values, y, test_size=size, random_state=42)
-
-        # Saving gender and race indices
-        if 'SEX' in x_train.columns and 'RAC1P' in x_train.columns:
-            global sex_mapping_train, sex_mapping_test, rac1p_mapping_train, rac1p_mapping_test
-            sex_mapping_train = x_train['SEX'].map({1: 'Male', 2: 'Female'}).reset_index(drop=True)
-            sex_mapping_test = x_test['SEX'].map({1: 'Male', 2: 'Female'}).reset_index(drop=True)
-            rac1p_mapping_train = x_train['RAC1P'].map(rac1p_categories).reset_index(drop=True)
-            rac1p_mapping_test = x_test['RAC1P'].map(rac1p_categories).reset_index(drop=True)
-
+    for i, (x_train_val, x_test_val) in enumerate([(x_train, x_test), (x_train.drop('SEX', axis=1), x_test.drop('SEX', axis=1)), (x_train.drop('RAC1P', axis=1), x_test.drop('RAC1P', axis=1))]):
         # Standardise the data
         scaler = StandardScaler()
-        scaler.fit(x_train)
-        x_train_scaled = scaler.transform(x_train)
-        x_test_scaled = scaler.transform(x_test)
+        scaler.fit(x_train_val)
+        x_train_scaled = scaler.transform(x_train_val)
+        x_test_scaled = scaler.transform(x_test_val)
 
-        splits.append([x_train_scaled, x_test_scaled, y_train, y_test])
+        # Removing the first column which corresponds to the dataset index
+        splits.append([x_train_scaled[:, 1:], x_test_scaled[:, 1:], y_train, y_test])
+
+        if i == 0:
+            # Saving sex and race values of the original full data
+            global sex_column_train, rac1p_column_train, sex_column_test, rac1p_column_test
+            sex_column_train = x_train_scaled[:, x.columns.get_loc('SEX')]
+            rac1p_column_train = x_train_scaled[:, x.columns.get_loc('RAC1P')]
+            sex_column_test = x_test_scaled[:, x.columns.get_loc('SEX')]
+            rac1p_column_test = x_test_scaled[:, x.columns.get_loc('RAC1P')]
     
     return splits, k
 
 
-def calculate_metrics(conf_matrix_train, conf_matrix_test, category):
-    if len(conf_matrix_test) < 2: return
-    # Extract values from the matrices
-    tn_train, fp_train, fn_train, tp_train = conf_matrix_train.ravel()
-    tn_test, fp_test, fn_test, tp_test = conf_matrix_test.ravel()
-
-    # Statistical Parity
-    stat_parity_train = (fp_train + tp_train) / (tn_train + fp_train + fn_train + tp_train)
-    stat_parity_test = (fp_test + tp_test) / (tn_test + fp_test + fn_test + tp_test)
-
-    # Equalised Odds
-    eq_odds_train = (fp_train / (fp_train + tn_train)) - (fn_train / (fn_train + tp_train))
-    eq_odds_test = (fp_test / (fp_test + tn_test)) - (fn_test / (fn_test + tp_test))
-
-    # Display the results
-    print(f"{category} Statistical Parity (Train): {stat_parity_train:.4f}")
-    print(f"{category} Statistical Parity (Test): {stat_parity_test:.4f}")
-
-    print(f"{category} Equalised Odds (Train): {eq_odds_train:.4f}")
-    print(f"{category} Equalised Odds (Test): {eq_odds_test:.4f}\n")
+def calculate_metrics(y_train, y_train_res, sensitive_col_train, y_test, y_pred_best, sensitive_col_test, category):
+    # fairness metrics
+    dp_diff_train = demographic_parity_difference(y_train, y_train_res, sensitive_features=sensitive_col_train)
+    eod_diff_train = equalized_odds_difference(y_train, y_train_res, sensitive_features=sensitive_col_train)
+    dp_diff_test = demographic_parity_difference(y_test, y_pred_best, sensitive_features=sensitive_col_test)
+    eod_diff_test = equalized_odds_difference(y_test, y_pred_best, sensitive_features=sensitive_col_test)
+    
+    print(f"Train demographic parity difference for {category}: {dp_diff_train}")
+    print(f"Train equalised odds difference for {category}: {eod_diff_train}")
+    print(f"Test demographic parity difference for {category}: {dp_diff_test}")
+    print(f"Test equalised odds difference for {category}: {eod_diff_test}\n")
 
 
 def evaluate_model(model, grid_search, x_train, x_test, y_train, y_test, k, sexMetrics = True, rac1pMetrics = True):
@@ -162,7 +162,7 @@ def evaluate_model(model, grid_search, x_train, x_test, y_train, y_test, k, sexM
 
         print("Train Confusion matrix F\n", f_matrix_train)
         print("Test Confusion matrix F\n", f_matrix_test)
-        calculate_metrics(f_matrix_train, f_matrix_test, "Female")
+        calculate_metrics(y_train, y_train_res, sex_column_train, y_test, y_pred_best, sex_column_test, "Female")
         
         male_indices_train = sex_mapping_train[sex_mapping_train == 'Male'].index
         male_indices_test = sex_mapping_test[sex_mapping_test == 'Male'].index
@@ -173,7 +173,7 @@ def evaluate_model(model, grid_search, x_train, x_test, y_train, y_test, k, sexM
 
         print("Train Confusion matrix M\n", m_matrix_train)
         print("Test Confusion matrix M\n", m_matrix_test)
-        calculate_metrics(m_matrix_train, m_matrix_test, "Male")
+        calculate_metrics(y_train, y_train_res, sex_column_train, y_test, y_pred_best, sex_column_test, "Male")
 
     if rac1pMetrics:
         print("----------------------race feature metrics----------------------")
@@ -187,7 +187,7 @@ def evaluate_model(model, grid_search, x_train, x_test, y_train, y_test, k, sexM
             category_conf_matrix_test = confusion_matrix(y_test.iloc[category_indices_test], y_pred_best[category_indices_test])
             print(f"Test Confusion matrix for RAC1P category {category}:\n{category_conf_matrix_test}")
 
-            calculate_metrics(category_conf_matrix_train, category_conf_matrix_test, category)
+            calculate_metrics(y_train, y_train_res, rac1p_column_train, y_test, y_pred_best, rac1p_column_test, category)
 
 splits, k = preprocess()
 [[x_train, x_test, y_train, y_test], [x_train_no_sex, x_test_no_sex, y_train_no_sex, y_test_no_sex], [x_train_no_rac1p, x_test_no_rac1p, y_train_no_rac1p, y_test_no_rac1p]] = splits
