@@ -43,9 +43,7 @@ def plot_metrics(data, split, sexFeature):
 
         plt.suptitle(f"Mesures sur les données de {split}{' sans la feature SEX' if not sexFeature else ''}")
         # Afficher le graphique
-        plt.savefig(f"plots/pdf/sex_confusion_{split}{'_no_sex' if not sexFeature else ''}.pdf")
-
-# Rest of the code remains unchanged
+        plt.savefig(f"plots/pdf/sex_confusion_{split}{'_no_sex' if not sexFeature else ''}.pdf", bbox_inches='tight')
 
 # Original data (F matrix, M matrix)
 train_data = {

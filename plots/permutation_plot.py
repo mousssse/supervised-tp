@@ -39,4 +39,5 @@ axs[1, 1].bar(np.array(feature_names)[svm_indices], importances_svm[svm_indices]
 axs[1, 1].set_title('SVM')
 
 # Display the plot
+plt.tight_layout()
 plt.savefig('plots/pdf/permutations.pdf')

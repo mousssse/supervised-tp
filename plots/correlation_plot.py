@@ -13,11 +13,10 @@ fig, ax = plt.subplots(figsize=(8, 6))
 ax.bar(np.array(feature_names)[correlation_train_indices], np.abs(correlations_train[correlation_train_indices]))
 
 # Ajuster les étiquettes et les titres
-ax.set_xlabel('Corrélations avec la prédiction d\'entraînement')
 ax.set_title('Corrélations entre les features et la prédiction d\'entraînement')
 
 # Afficher le graphique
-plt.savefig('plots/pdf/correlations.pdf')
+plt.savefig('plots/pdf/correlations.pdf', bbox_inches='tight')
 
 correlations_adaboost = np.array([0.0774, 0.4595, -0.3225, -0.4587, -0.1149, -0.2660, 0.4094, -0.1373, -0.1275])
 correlations_gb = np.array([0.0750, 0.4638, -0.3240, -0.4654, -0.1186, -0.2693, 0.3848, -0.1179, -0.1199])
@@ -51,4 +50,5 @@ axs[1, 1].bar(np.array(feature_names)[svm_correlation_indices], np.abs(correlati
 axs[1, 1].set_title('SVM')
 
 # Afficher le graphique
+plt.tight_layout()
 plt.savefig('plots/pdf/models_correlations.pdf')
