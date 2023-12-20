@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 def plot_metrics(models, metrics, title, filename):
-    fig, axs = plt.subplots(1, 2, figsize=(12, 5))
+    fig, axs = plt.subplots(1, 2, figsize=(8, 4))
     fig.suptitle(title, fontsize=16)
 
     # Plot Demographic Parity Difference
@@ -21,7 +21,7 @@ def plot_metrics(models, metrics, title, filename):
     plt.savefig(filename)
 
 # Models
-models = ['AdaBoost', 'Gradient Boosting', 'Random Forest', 'SVM']
+models = ['Ada', 'GB', 'RF', 'SVM']
 colours = ['darkorange', 'mediumorchid', 'forestgreen', 'skyblue']
 
 # Train metrics

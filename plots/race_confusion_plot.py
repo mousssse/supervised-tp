@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-models = ['Ada Boost', 'Gradient Boosting', 'Random Forest', 'SVM']
+models = ['Ada', 'GB', 'RF', 'SVM']
 rac1p_categories = [
     'White',
     'Black / African American',
@@ -38,7 +38,7 @@ def plot_metrics(data, rac1pFeature):
     precision_by_model, recall_by_model = data
 
     # Create the figure with subplots
-    _, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+    _, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
 
     # Plot precision
     for i, category in enumerate(rac1p_categories):
@@ -72,7 +72,7 @@ def plot_metrics(data, rac1pFeature):
 
 # Test data for RAC1P
 test_data_rac1p = {
-    'Ada Boost': [
+    'Ada': [
         np.array([[2286, 464], [489, 1610]]),
         np.array([[194, 57], [30, 77]]),
         np.array([[40, 3], [3, 11]]),
@@ -82,7 +82,7 @@ test_data_rac1p = {
         np.array([[675, 38], [111, 68]]),
         np.array([[157, 21], [45, 81]])
     ],
-    'Gradient Boosting': [
+    'GB': [
         np.array([[2297, 453], [455, 1644]]),
         np.array([[200, 51], [31, 76]]),
         np.array([[41, 2], [3, 11]]),
@@ -92,7 +92,7 @@ test_data_rac1p = {
         np.array([[670, 43], [109, 70]]),
         np.array([[157, 21], [42, 84]])
     ],
-    'Random Forest': [
+    'RF': [
         np.array([[2291, 459], [479, 1620]]),
         np.array([[198, 53], [35, 72]]),
         np.array([[40, 3], [3, 11]]),
@@ -116,7 +116,7 @@ test_data_rac1p = {
 
 # Test data without RAC1P feature
 test_data_no_rac1p = {
-    'Ada Boost': [
+    'Ada': [
         np.array([[2312, 438], [514, 1585]]),
         np.array([[198, 53], [32, 75]]),
         np.array([[40, 3], [3, 11]]),
@@ -126,7 +126,7 @@ test_data_no_rac1p = {
         np.array([[668, 45], [107, 72]]),
         np.array([[152, 26], [40, 86]])
     ],
-    'Gradient Boosting': [
+    'GB': [
         np.array([[2305, 445], [453, 1646]]),
         np.array([[198, 53], [31, 76]]),
         np.array([[41, 2], [3, 11]]),
@@ -136,7 +136,7 @@ test_data_no_rac1p = {
         np.array([[658, 55], [99, 80]]),
         np.array([[153, 25], [38, 88]])
     ],
-    'Random Forest': [
+    'RF': [
         np.array([[2317, 433], [493, 1606]]),
         np.array([[197, 54], [36, 71]]),
         np.array([[39, 4], [3, 11]]),

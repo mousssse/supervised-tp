@@ -9,7 +9,7 @@ correlations_train = np.array([0.0609, 0.3492, -0.2657, -0.3368, -0.0832, -0.218
 correlation_train_indices = np.argsort(np.abs(correlations_train))[::-1]
 
 # Créer une figure
-fig, ax = plt.subplots(figsize=(8, 6))
+fig, ax = plt.subplots(figsize=(6, 4))
 ax.bar(np.array(feature_names)[correlation_train_indices], np.abs(correlations_train[correlation_train_indices]))
 
 # Ajuster les étiquettes et les titres
@@ -30,7 +30,7 @@ rf_correlation_indices = np.argsort(np.abs(correlations_rf))[::-1]
 svm_correlation_indices = np.argsort(np.abs(correlations_svm))[::-1]
 
 # Créer une figure avec plusieurs sous-graphiques
-fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+fig, axs = plt.subplots(2, 2, figsize=(9, 6))
 fig.suptitle('Corrélations entre les features et la prédiction pour chaque modèle', fontsize=16)
 
 # Plot pour AdaBoost

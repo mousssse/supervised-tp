@@ -13,7 +13,7 @@ importances_svm = np.array([0.001942, 0.05309825, 0.02166858, 0.03214514, 0.0046
                             0.0178868, 0.05539798, 0.01374729, 0.0025297])
 
 # Create a figure with subplots
-fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+fig, axs = plt.subplots(2, 2, figsize=(9, 6))
 fig.suptitle('Importance de la permutation des features pour chaque modèle', fontsize=16)
 
 # Sort indices based on importances

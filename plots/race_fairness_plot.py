@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-models = ['Ada Boost', 'Gradient Boosting', 'Random Forest', 'SVM']
+models = ['Ada', 'GB', 'RF', 'SVM']
 rac1p_categories = [
     'White',
     'Black / African American',
@@ -25,7 +25,7 @@ def plot_rates(data, rac1pFeature):
             tpr_by_model[model].append(rates[i]['TPR'])
             tnr_by_model[model].append(rates[i]['TNR'])
 
-    _, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+    _, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
 
     # Plot TPR
     for i, category in enumerate(rac1p_categories):
@@ -58,19 +58,19 @@ def plot_rates(data, rac1pFeature):
 
 # Test rates for RAC1P
 test_rates_rac1p = {
-    'Ada Boost': [
+    'Ada': [
         {'TPR': 0.7670, 'TNR': 0.8313}, {'TPR': 0.7196, 'TNR': 0.7729},
         {'TPR': 0.7857, 'TNR': 0.9302}, {'TPR': 0.5000, 'TNR': 0.9231},
         {'TPR': 0.7700, 'TNR': 0.8006}, {'TPR': 1.0000, 'TNR': 0.7727},
         {'TPR': 0.3799, 'TNR': 0.9467}, {'TPR': 0.6429, 'TNR': 0.8820}
     ],
-    'Gradient Boosting': [
+    'GB': [
         {'TPR': 0.7832, 'TNR': 0.8353}, {'TPR': 0.7103, 'TNR': 0.7968},
         {'TPR': 0.7857, 'TNR': 0.9535}, {'TPR': 0.5000, 'TNR': 0.8462},
         {'TPR': 0.8083, 'TNR': 0.8019}, {'TPR': 1.0000, 'TNR': 0.7727},
         {'TPR': 0.3911, 'TNR': 0.9397}, {'TPR': 0.6667, 'TNR': 0.8820}
     ],
-    'Random Forest': [
+    'RF': [
         {'TPR': 0.7718, 'TNR': 0.8331}, {'TPR': 0.6729, 'TNR': 0.7888},
         {'TPR': 0.7857, 'TNR': 0.9302}, {'TPR': 0.5000, 'TNR': 0.9231},
         {'TPR': 0.7933, 'TNR': 0.8047}, {'TPR': 0.8000, 'TNR': 0.9091},
@@ -86,19 +86,19 @@ test_rates_rac1p = {
 
 # Test rates without RAC1P
 test_rates_no_rac1p = {
-    'Ada Boost': [
+    'Ada': [
         {'TPR': 0.7551, 'TNR': 0.8407}, {'TPR': 0.7009, 'TNR': 0.7888},
         {'TPR': 0.7857, 'TNR': 0.9302}, {'TPR': 0.5000, 'TNR': 0.9231},
         {'TPR': 0.7883, 'TNR': 0.7784}, {'TPR': 1.0000, 'TNR': 0.6818},
         {'TPR': 0.4022, 'TNR': 0.9369}, {'TPR': 0.6825, 'TNR': 0.8539}
     ],
-    'Gradient Boosting': [
+    'GB': [
         {'TPR': 0.7842, 'TNR': 0.8382}, {'TPR': 0.7103, 'TNR': 0.7888},
         {'TPR': 0.7857, 'TNR': 0.9535}, {'TPR': 0.5000, 'TNR': 0.9231},
         {'TPR': 0.8067, 'TNR': 0.7978}, {'TPR': 1.0000, 'TNR': 0.7727},
         {'TPR': 0.4469, 'TNR': 0.9229}, {'TPR': 0.6984, 'TNR': 0.8596}
     ],
-    'Random Forest': [
+    'RF': [
         {'TPR': 0.7651, 'TNR': 0.8425}, {'TPR': 0.6636, 'TNR': 0.7849},
         {'TPR': 0.7857, 'TNR': 0.9070}, {'TPR': 0.5000, 'TNR': 0.9231},
         {'TPR': 0.7900, 'TNR': 0.8006}, {'TPR': 0.8000, 'TNR': 0.8636},
