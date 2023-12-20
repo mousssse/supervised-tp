@@ -1,402 +1,12 @@
 Analysis with a sample of size 20.0% -> 39133 examples
 
 
-Correlations :
-['0.0609', '0.3492', '-0.2657', '-0.3368', '-0.0832', '-0.2189', '0.3418', '-0.1174', '-0.0970']
-
---------------------------Random Forest---------------------------
-Cross validation scores: ['0.7970', '0.7949', '0.7898', '0.7967', '0.8045']. Mean: 0.7966
-Training time: 6.0909 seconds
-Accuracy: 0.7939
-Classification report:
-              precision    recall  f1-score   support
-
-       False       0.82      0.84      0.83      4692
-        True       0.75      0.73      0.74      3135
-
-    accuracy                           0.79      7827
-   macro avg       0.79      0.78      0.78      7827
-weighted avg       0.79      0.79      0.79      7827
-
-Confusion matrix:
-[[3930  762]
- [ 851 2284]]
-Grid search time: 67.2296 seconds
-Best parameters for RandomForestClassifier(): {'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 100}
-Accuracy: 0.8072
-Classification report:
-              precision    recall  f1-score   support
-
-       False       0.83      0.85      0.84      4692
-        True       0.77      0.75      0.76      3135
-
-    accuracy                           0.81      7827
-   macro avg       0.80      0.80      0.80      7827
-weighted avg       0.81      0.81      0.81      7827
-
-Confusion matrix:
-[[3976  716]
- [ 793 2342]]
-Prediction correlation:
-['0.0772', '0.4688', '-0.3177', '-0.4849', '-0.1244', '-0.2767', '0.4012', '-0.1151', '-0.1218']
-Permutation importance
- {'importances_mean': array([0.00421617, 0.0452025 , 0.00856011, 0.04783442, 0.00574933,
-       0.03048422, 0.06873643, 0.00958222, 0.00304076]), 'importances_std': array([0.00066141, 0.00311846, 0.00174058, 0.00098502, 0.00098634,
-       0.00214489, 0.00242278, 0.00134485, 0.00115807]), 'importances': array([[0.0034496 , 0.00421617, 0.00459946, 0.00523828, 0.00357736],
-       [0.04395043, 0.04331161, 0.04752779, 0.04126741, 0.04995528],
-       [0.00983774, 0.00881564, 0.01085984, 0.00728248, 0.00600485],
-       [0.04663345, 0.04931647, 0.04765555, 0.04701674, 0.04854989],
-       [0.00600485, 0.00626038, 0.00562157, 0.0068992 , 0.00396065],
-       [0.03040756, 0.03360164, 0.02836336, 0.02798007, 0.03206848],
-       [0.07231379, 0.0674588 , 0.06528683, 0.07039734, 0.06822537],
-       [0.01124313, 0.01034879, 0.00907116, 0.0099655 , 0.00728248],
-       [0.00293855, 0.00421617, 0.00153315, 0.0044717 , 0.00204421]])}
-----------------------sex feature metrics----------------------
-Train Confusion matrix F
- [[9468   85]
- [  60 5162]]
-Test Confusion matrix F
- [[2075  328]
- [ 389  892]]
-Train demographic parity difference for Female: 0.11332630556895562
-Train equalised odds difference for Female: 0.0011466740908964712
-Test demographic parity difference for Female: 0.11247809381390533
-Test equalised odds difference for Female: 0.0857617809710759
-
-Train Confusion matrix M
- [[8705   68]
- [  82 7676]]
-Test Confusion matrix M
- [[1901  388]
- [ 404 1450]]
-Train demographic parity difference for Male: 0.11332630556895562
-Train equalised odds difference for Male: 0.0011466740908964712
-Test demographic parity difference for Male: 0.11247809381390533
-Test equalised odds difference for Male: 0.0857617809710759
-
-----------------------race feature metrics----------------------
-Train Confusion matrix for RAC1P category White:
-[[10597   126]
- [  101  8520]]
-Test Confusion matrix for RAC1P category White:
-[[2293  457]
- [ 480 1619]]
-Train demographic parity difference for White: 0.31142540210759845
-Train equalised odds difference for White: 0.031654676258992764
-Test demographic parity difference for White: 0.8766816143497758
-Test equalised odds difference for White: 0.5977653631284916
-
-Train Confusion matrix for RAC1P category Black / African American:
-[[854   1]
- [  2 458]]
-Test Confusion matrix for RAC1P category Black / African American:
-[[200  51]
- [ 34  73]]
-Train demographic parity difference for Black / African American: 0.31142540210759845
-Train equalised odds difference for Black / African American: 0.031654676258992764
-Test demographic parity difference for Black / African American: 0.8766816143497758
-Test equalised odds difference for Black / African American: 0.5977653631284916
-
-Train Confusion matrix for RAC1P category American Indian:
-[[145   0]
- [  0  55]]
-Test Confusion matrix for RAC1P category American Indian:
-[[39  4]
- [ 2 12]]
-Train demographic parity difference for American Indian: 0.31142540210759845
-Train equalised odds difference for American Indian: 0.031654676258992764
-Test demographic parity difference for American Indian: 0.8766816143497758
-Test equalised odds difference for American Indian: 0.5977653631284916
-
-Train Confusion matrix for RAC1P category Alaska Native:
-[[1 0]
- [0 1]]
-Test Confusion matrix for RAC1P category Alaska Native:
-[[1]]
-Train demographic parity difference for Alaska Native: 0.31142540210759845
-Train equalised odds difference for Alaska Native: 0.031654676258992764
-Test demographic parity difference for Alaska Native: 0.8766816143497758
-Test equalised odds difference for Alaska Native: 0.5977653631284916
-
-Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
-[[49  0]
- [ 0 18]]
-Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
-[[12  1]
- [ 2  2]]
-Train demographic parity difference for Am. Indian and/or Alaska Native: 0.31142540210759845
-Train equalised odds difference for Am. Indian and/or Alaska Native: 0.031654676258992764
-Test demographic parity difference for Am. Indian and/or Alaska Native: 0.8766816143497758
-Test equalised odds difference for Am. Indian and/or Alaska Native: 0.5977653631284916
-
-Train Confusion matrix for RAC1P category Asian:
-[[2725   19]
- [  16 2598]]
-Test Confusion matrix for RAC1P category Asian:
-[[583 139]
- [123 477]]
-Train demographic parity difference for Asian: 0.31142540210759845
-Train equalised odds difference for Asian: 0.031654676258992764
-Test demographic parity difference for Asian: 0.8766816143497758
-Test equalised odds difference for Asian: 0.5977653631284916
-
-Train Confusion matrix for RAC1P category Native Hawaiian:
-[[65  0]
- [ 0 31]]
-Test Confusion matrix for RAC1P category Native Hawaiian:
-[[20  2]
- [ 0  5]]
-Train demographic parity difference for Native Hawaiian: 0.31142540210759845
-Train equalised odds difference for Native Hawaiian: 0.031654676258992764
-Test demographic parity difference for Native Hawaiian: 0.8766816143497758
-Test equalised odds difference for Native Hawaiian: 0.5977653631284916
-
-Train Confusion matrix for RAC1P category Other race alone:
-[[2904    7]
- [  22  673]]
-Test Confusion matrix for RAC1P category Other race alone:
-[[675  38]
- [107  72]]
-Train demographic parity difference for Other race alone: 0.31142540210759845
-Train equalised odds difference for Other race alone: 0.031654676258992764
-Test demographic parity difference for Other race alone: 0.8766816143497758
-Test equalised odds difference for Other race alone: 0.5977653631284916
-
-Train Confusion matrix for RAC1P category Two+ races:
-[[833   0]
- [  1 484]]
-Test Confusion matrix for RAC1P category Two+ races:
-[[154  24]
- [ 45  81]]
-Train demographic parity difference for Two+ races: 0.31142540210759845
-Train equalised odds difference for Two+ races: 0.031654676258992764
-Test demographic parity difference for Two+ races: 0.8766816143497758
-Test equalised odds difference for Two+ races: 0.5977653631284916
-
-
---------------------Random Forest without sex---------------------
-Cross validation scores: ['0.7881', '0.7900', '0.7849', '0.7933', '0.7997']. Mean: 0.7912
-Training time: 7.4963 seconds
-Accuracy: 0.7926
-Classification report:
-              precision    recall  f1-score   support
-
-       False       0.82      0.83      0.83      4692
-        True       0.74      0.73      0.74      3135
-
-    accuracy                           0.79      7827
-   macro avg       0.78      0.78      0.78      7827
-weighted avg       0.79      0.79      0.79      7827
-
-Confusion matrix:
-[[3902  790]
- [ 833 2302]]
-Grid search time: 71.8904 seconds
-Best parameters for RandomForestClassifier(): {'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 100}
-Accuracy: 0.8034
-Classification report:
-              precision    recall  f1-score   support
-
-       False       0.83      0.84      0.84      4692
-        True       0.76      0.74      0.75      3135
-
-    accuracy                           0.80      7827
-   macro avg       0.80      0.79      0.79      7827
-weighted avg       0.80      0.80      0.80      7827
-
-Confusion matrix:
-[[3964  728]
- [ 811 2324]]
-Prediction correlation:
-['0.0807', '0.4777', '-0.3215', '-0.4942', '-0.1244', '-0.2790', '0.3971', '-0.1204']
-Permutation importance
- {'importances_mean': array([0.00580043, 0.04101188, 0.00761467, 0.04323496, 0.00385844,
-       0.02815894, 0.07389805, 0.00401175]), 'importances_std': array([0.00051487, 0.00261462, 0.0017788 , 0.00207212, 0.00123712,
-       0.0023622 , 0.00210495, 0.0005516 ]), 'importances': array([[0.00626038, 0.00562157, 0.00511051, 0.00651591, 0.0054938 ],
-       [0.04075636, 0.03998978, 0.04113964, 0.03756228, 0.04561135],
-       [0.00868788, 0.00677143, 0.00830459, 0.00459946, 0.00970998],
-       [0.04280056, 0.04510029, 0.04510029, 0.03947873, 0.0436949 ],
-       [0.00268302, 0.0044717 , 0.00600485, 0.00293855, 0.00319407],
-       [0.02912993, 0.03066309, 0.02670244, 0.02427495, 0.03002427],
-       [0.07665772, 0.07308036, 0.07167497, 0.07614667, 0.0719305 ],
-       [0.0044717 , 0.00370512, 0.00434394, 0.00306631, 0.0044717 ]])}
-----------------------sex feature metrics----------------------
-Train Confusion matrix F
- [[9436  117]
- [  68 5154]]
-Test Confusion matrix F
- [[2002  401]
- [ 338  943]]
-Train demographic parity difference for Female: 0.1124278489851554
-Train equalised odds difference for Female: 0.0013047965355386694
-Test demographic parity difference for Female: 0.04744079924459532
-Test equalised odds difference for Female: 0.024017597051304934
-
-Train Confusion matrix M
- [[8677   96]
- [  98 7660]]
-Test Confusion matrix M
- [[1962  327]
- [ 473 1381]]
-Train demographic parity difference for Male: 0.1124278489851554
-Train equalised odds difference for Male: 0.0013047965355386694
-Test demographic parity difference for Male: 0.04744079924459532
-Test equalised odds difference for Male: 0.024017597051304934
-
-
--------------------Random Forest without rac1p--------------------
-Cross validation scores: ['0.7887', '0.7901', '0.7833', '0.7877', '0.7994']. Mean: 0.7898
-Training time: 6.2805 seconds
-Accuracy: 0.7882
-Classification report:
-              precision    recall  f1-score   support
-
-       False       0.82      0.83      0.82      4692
-        True       0.74      0.72      0.73      3135
-
-    accuracy                           0.79      7827
-   macro avg       0.78      0.78      0.78      7827
-weighted avg       0.79      0.79      0.79      7827
-
-Confusion matrix:
-[[3898  794]
- [ 864 2271]]
-Grid search time: 72.0020 seconds
-Best parameters for RandomForestClassifier(): {'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 100}
-Accuracy: 0.8041
-Classification report:
-              precision    recall  f1-score   support
-
-       False       0.83      0.85      0.84      4692
-        True       0.76      0.74      0.75      3135
-
-    accuracy                           0.80      7827
-   macro avg       0.80      0.79      0.80      7827
-weighted avg       0.80      0.80      0.80      7827
-
-Confusion matrix:
-[[3970  722]
- [ 811 2324]]
-Prediction correlation:
-['0.0803', '0.4711', '-0.3228', '-0.4895', '-0.1272', '-0.2720', '0.3978', '-0.1180']
-Permutation importance
- {'importances_mean': array([0.00426728, 0.04349048, 0.00769132, 0.04433372, 0.0050083 ,
-       0.02504152, 0.06247604, 0.01006771]), 'importances_std': array([0.00135597, 0.00200811, 0.00156143, 0.00262334, 0.00075542,
-       0.00276747, 0.00196273, 0.00136987]), 'importances': array([[0.00229973, 0.00485499, 0.00485499, 0.00613262, 0.00319407],
-       [0.04407819, 0.04343938, 0.04101188, 0.04203398, 0.04688897],
-       [0.00843235, 0.00702696, 0.01009327, 0.00536604, 0.00753801],
-       [0.04548358, 0.04586687, 0.04139517, 0.04113964, 0.04778331],
-       [0.00459946, 0.00523828, 0.00638814, 0.00434394, 0.0044717 ],
-       [0.02465823, 0.02887441, 0.02248627, 0.02171969, 0.02746902],
-       [0.06567012, 0.06196499, 0.0595375 , 0.06285933, 0.06234828],
-       [0.01226524, 0.01022103, 0.01034879, 0.00945445, 0.00804906]])}
-----------------------race feature metrics----------------------
-Train Confusion matrix for RAC1P category White:
-[[10568   155]
- [  128  8493]]
-Test Confusion matrix for RAC1P category White:
-[[2309  441]
- [ 503 1596]]
-Train demographic parity difference for White: 0.31503050471436495
-Train equalised odds difference for White: 0.06618705035971229
-Test demographic parity difference for White: 0.8587443946188341
-Test equalised odds difference for White: 0.5698324022346368
-
-Train Confusion matrix for RAC1P category Black / African American:
-[[845  10]
- [  5 455]]
-Test Confusion matrix for RAC1P category Black / African American:
-[[195  56]
- [ 35  72]]
-Train demographic parity difference for Black / African American: 0.31503050471436495
-Train equalised odds difference for Black / African American: 0.06618705035971229
-Test demographic parity difference for Black / African American: 0.8587443946188341
-Test equalised odds difference for Black / African American: 0.5698324022346368
-
-Train Confusion matrix for RAC1P category American Indian:
-[[145   0]
- [  1  54]]
-Test Confusion matrix for RAC1P category American Indian:
-[[39  4]
- [ 3 11]]
-Train demographic parity difference for American Indian: 0.31503050471436495
-Train equalised odds difference for American Indian: 0.06618705035971229
-Test demographic parity difference for American Indian: 0.8587443946188341
-Test equalised odds difference for American Indian: 0.5698324022346368
-
-Train Confusion matrix for RAC1P category Alaska Native:
-[[1 0]
- [0 1]]
-Test Confusion matrix for RAC1P category Alaska Native:
-[[1]]
-Train demographic parity difference for Alaska Native: 0.31503050471436495
-Train equalised odds difference for Alaska Native: 0.06618705035971229
-Test demographic parity difference for Alaska Native: 0.8587443946188341
-Test equalised odds difference for Alaska Native: 0.5698324022346368
-
-Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
-[[48  1]
- [ 0 18]]
-Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
-[[12  1]
- [ 2  2]]
-Train demographic parity difference for Am. Indian and/or Alaska Native: 0.31503050471436495
-Train equalised odds difference for Am. Indian and/or Alaska Native: 0.06618705035971229
-Test demographic parity difference for Am. Indian and/or Alaska Native: 0.8587443946188341
-Test equalised odds difference for Am. Indian and/or Alaska Native: 0.5698324022346368
-
-Train Confusion matrix for RAC1P category Asian:
-[[2708   36]
- [  20 2594]]
-Test Confusion matrix for RAC1P category Asian:
-[[578 144]
- [126 474]]
-Train demographic parity difference for Asian: 0.31503050471436495
-Train equalised odds difference for Asian: 0.06618705035971229
-Test demographic parity difference for Asian: 0.8587443946188341
-Test equalised odds difference for Asian: 0.5698324022346368
-
-Train Confusion matrix for RAC1P category Native Hawaiian:
-[[65  0]
- [ 1 30]]
-Test Confusion matrix for RAC1P category Native Hawaiian:
-[[19  3]
- [ 0  5]]
-Train demographic parity difference for Native Hawaiian: 0.31503050471436495
-Train equalised odds difference for Native Hawaiian: 0.06618705035971229
-Test demographic parity difference for Native Hawaiian: 0.8587443946188341
-Test equalised odds difference for Native Hawaiian: 0.5698324022346368
-
-Train Confusion matrix for RAC1P category Other race alone:
-[[2893   18]
- [  46  649]]
-Test Confusion matrix for RAC1P category Other race alone:
-[[664  49]
- [102  77]]
-Train demographic parity difference for Other race alone: 0.31503050471436495
-Train equalised odds difference for Other race alone: 0.06618705035971229
-Test demographic parity difference for Other race alone: 0.8587443946188341
-Test equalised odds difference for Other race alone: 0.5698324022346368
-
-Train Confusion matrix for RAC1P category Two+ races:
-[[826   7]
- [  9 476]]
-Test Confusion matrix for RAC1P category Two+ races:
-[[154  24]
- [ 40  86]]
-Train demographic parity difference for Two+ races: 0.31503050471436495
-Train equalised odds difference for Two+ races: 0.06618705035971229
-Test demographic parity difference for Two+ races: 0.8587443946188341
-Test equalised odds difference for Two+ races: 0.5698324022346368
-
----------------------------------------------------
-
-
-
+Correlations:
+[0.0609, 0.3492, -0.2657, -0.3368, -0.0832, -0.2189, 0.3418, -0.1174, -0.0970]
 
 --------------------------Ada Boost---------------------------
-Cross validation scores: ['0.8082', '0.8034', '0.7988', '0.8011', '0.8075']. Mean: 0.8038
-Training time: 1.3796 seconds
+Cross validation scores: [0.8082, 0.8034, 0.7988, 0.8011, 0.8075]. Mean: 0.8038
+Training time: 1.2133 seconds
 Accuracy: 0.8002
 Classification report:
               precision    recall  f1-score   support
@@ -411,7 +21,7 @@ weighted avg       0.80      0.80      0.80      7827
 Confusion matrix:
 [[3960  732]
  [ 832 2303]]
-Grid search time: 36.5130 seconds
+Grid search time: 60.2418 seconds
 Best parameters for AdaBoostClassifier(): {'learning_rate': 1, 'n_estimators': 100}
 Accuracy: 0.8018
 Classification report:
@@ -427,8 +37,8 @@ weighted avg       0.80      0.80      0.80      7827
 Confusion matrix:
 [[3959  733]
  [ 818 2317]]
-Prediction correlation:
-['0.0774', '0.4595', '-0.3225', '-0.4587', '-0.1149', '-0.2660', '0.4094', '-0.1373', '-0.1275']
+Prediction correlations:
+[0.0774, 0.4595, -0.3225, -0.4587, -0.1149, -0.2660, 0.4094, -0.1373, -0.1275]
 Permutation importance
  {'importances_mean': array([0.0044206 , 0.04172735, 0.00746135, 0.04285167, 0.00367957,
        0.03017759, 0.05769771, 0.00981219, 0.00201865]), 'importances_std': array([0.00215401, 0.00439668, 0.00087999, 0.0020925 , 0.00130143,
@@ -448,21 +58,16 @@ Train Confusion matrix F
 Test Confusion matrix F
  [[2085  318]
  [ 425  856]]
-Train demographic parity difference for Female: 0.14586444521347935
-Train equalised odds difference for Female: 0.08319073458129078
-Test demographic parity difference for Female: 0.1341366191236582
-Test equalised odds difference for Female: 0.11979794305116609
-
 Train Confusion matrix M
  [[7054 1719]
  [1693 6065]]
 Test Confusion matrix M
  [[1874  415]
  [ 393 1461]]
-Train demographic parity difference for Male: 0.14586444521347935
-Train equalised odds difference for Male: 0.08319073458129078
-Test demographic parity difference for Male: 0.1341366191236582
-Test equalised odds difference for Male: 0.11979794305116609
+Train demographic parity difference for SEX: 0.1459
+Train equalised odds difference for SEX: 0.0832
+Test demographic parity difference for SEX: 0.1341
+Test equalised odds difference for SEX: 0.1198
 
 ----------------------race feature metrics----------------------
 Train Confusion matrix for RAC1P category White:
@@ -471,10 +76,8 @@ Train Confusion matrix for RAC1P category White:
 Test Confusion matrix for RAC1P category White:
 [[2286  464]
  [ 489 1610]]
-Train demographic parity difference for White: 0.3785357737104825
-Train equalised odds difference for White: 0.5856115107913669
-Test demographic parity difference for White: 0.8811659192825112
-Test equalised odds difference for White: 0.6201117318435754
+Train rates for White - TPR: 0.7688, TNR: 0.8244
+Test rates for White - TPR: 0.7670, TNR: 0.8313
 
 Train Confusion matrix for RAC1P category Black / African American:
 [[716 139]
@@ -482,10 +85,8 @@ Train Confusion matrix for RAC1P category Black / African American:
 Test Confusion matrix for RAC1P category Black / African American:
 [[194  57]
  [ 30  77]]
-Train demographic parity difference for Black / African American: 0.3785357737104825
-Train equalised odds difference for Black / African American: 0.5856115107913669
-Test demographic parity difference for Black / African American: 0.8811659192825112
-Test equalised odds difference for Black / African American: 0.6201117318435754
+Train rates for Black / African American - TPR: 0.6630, TNR: 0.8374
+Test rates for Black / African American - TPR: 0.7196, TNR: 0.7729
 
 Train Confusion matrix for RAC1P category American Indian:
 [[129  16]
@@ -493,20 +94,16 @@ Train Confusion matrix for RAC1P category American Indian:
 Test Confusion matrix for RAC1P category American Indian:
 [[40  3]
  [ 3 11]]
-Train demographic parity difference for American Indian: 0.3785357737104825
-Train equalised odds difference for American Indian: 0.5856115107913669
-Test demographic parity difference for American Indian: 0.8811659192825112
-Test equalised odds difference for American Indian: 0.6201117318435754
+Train rates for American Indian - TPR: 0.5455, TNR: 0.8897
+Test rates for American Indian - TPR: 0.7857, TNR: 0.9302
 
 Train Confusion matrix for RAC1P category Alaska Native:
 [[1 0]
  [0 1]]
 Test Confusion matrix for RAC1P category Alaska Native:
 [[1]]
-Train demographic parity difference for Alaska Native: 0.3785357737104825
-Train equalised odds difference for Alaska Native: 0.5856115107913669
-Test demographic parity difference for Alaska Native: 0.8811659192825112
-Test equalised odds difference for Alaska Native: 0.6201117318435754
+Train rates for Alaska Native - TPR: 1.0000, TNR: 1.0000
+Not enough data to measure test rates
 
 Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[44  5]
@@ -514,10 +111,8 @@ Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[12  1]
  [ 2  2]]
-Train demographic parity difference for Am. Indian and/or Alaska Native: 0.3785357737104825
-Train equalised odds difference for Am. Indian and/or Alaska Native: 0.5856115107913669
-Test demographic parity difference for Am. Indian and/or Alaska Native: 0.8811659192825112
-Test equalised odds difference for Am. Indian and/or Alaska Native: 0.6201117318435754
+Train rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.8980
+Test rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.9231
 
 Train Confusion matrix for RAC1P category Asian:
 [[2166  578]
@@ -525,10 +120,8 @@ Train Confusion matrix for RAC1P category Asian:
 Test Confusion matrix for RAC1P category Asian:
 [[578 144]
  [138 462]]
-Train demographic parity difference for Asian: 0.3785357737104825
-Train equalised odds difference for Asian: 0.5856115107913669
-Test demographic parity difference for Asian: 0.8811659192825112
-Test equalised odds difference for Asian: 0.6201117318435754
+Train rates for Asian - TPR: 0.7950, TNR: 0.7894
+Test rates for Asian - TPR: 0.7700, TNR: 0.8006
 
 Train Confusion matrix for RAC1P category Native Hawaiian:
 [[56  9]
@@ -536,10 +129,8 @@ Train Confusion matrix for RAC1P category Native Hawaiian:
 Test Confusion matrix for RAC1P category Native Hawaiian:
 [[17  5]
  [ 0  5]]
-Train demographic parity difference for Native Hawaiian: 0.3785357737104825
-Train equalised odds difference for Native Hawaiian: 0.5856115107913669
-Test demographic parity difference for Native Hawaiian: 0.8811659192825112
-Test equalised odds difference for Native Hawaiian: 0.6201117318435754
+Train rates for Native Hawaiian - TPR: 0.6452, TNR: 0.8615
+Test rates for Native Hawaiian - TPR: 1.0000, TNR: 0.7727
 
 Train Confusion matrix for RAC1P category Other race alone:
 [[2761  150]
@@ -547,10 +138,8 @@ Train Confusion matrix for RAC1P category Other race alone:
 Test Confusion matrix for RAC1P category Other race alone:
 [[675  38]
  [111  68]]
-Train demographic parity difference for Other race alone: 0.3785357737104825
-Train equalised odds difference for Other race alone: 0.5856115107913669
-Test demographic parity difference for Other race alone: 0.8811659192825112
-Test equalised odds difference for Other race alone: 0.6201117318435754
+Train rates for Other race alone - TPR: 0.4144, TNR: 0.9485
+Test rates for Other race alone - TPR: 0.3799, TNR: 0.9467
 
 Train Confusion matrix for RAC1P category Two+ races:
 [[740  93]
@@ -558,15 +147,13 @@ Train Confusion matrix for RAC1P category Two+ races:
 Test Confusion matrix for RAC1P category Two+ races:
 [[157  21]
  [ 45  81]]
-Train demographic parity difference for Two+ races: 0.3785357737104825
-Train equalised odds difference for Two+ races: 0.5856115107913669
-Test demographic parity difference for Two+ races: 0.8811659192825112
-Test equalised odds difference for Two+ races: 0.6201117318435754
+Train rates for Two+ races - TPR: 0.7299, TNR: 0.8884
+Test rates for Two+ races - TPR: 0.6429, TNR: 0.8820
 
 
 --------------------Ada Boost without sex---------------------
-Cross validation scores: ['0.8013', '0.8016', '0.7983', '0.7973', '0.8015']. Mean: 0.8000
-Training time: 1.2787 seconds
+Cross validation scores: [0.8013, 0.8016, 0.7983, 0.7973, 0.8015]. Mean: 0.8000
+Training time: 1.8271 seconds
 Accuracy: 0.7990
 Classification report:
               precision    recall  f1-score   support
@@ -581,7 +168,7 @@ weighted avg       0.80      0.80      0.80      7827
 Confusion matrix:
 [[3959  733]
  [ 840 2295]]
-Grid search time: 29.0420 seconds
+Grid search time: 49.5985 seconds
 Best parameters for AdaBoostClassifier(): {'learning_rate': 1, 'n_estimators': 100}
 Accuracy: 0.7997
 Classification report:
@@ -597,8 +184,8 @@ weighted avg       0.80      0.80      0.80      7827
 Confusion matrix:
 [[3962  730]
  [ 838 2297]]
-Prediction correlation:
-['0.0759', '0.4659', '-0.3145', '-0.4763', '-0.1109', '-0.2612', '0.4117', '-0.1129']
+Prediction correlations:
+[0.0759, 0.4659, -0.3145, -0.4763, -0.1109, -0.2612, 0.4117, -0.1129]
 Permutation importance
  {'importances_mean': array([0.00168647, 0.04139517, 0.00843235, 0.04308164, 0.0029641 ,
        0.02943657, 0.06160726, 0.0014565 ]), 'importances_std': array([0.00118317, 0.00340051, 0.00059379, 0.00114389, 0.00188709,
@@ -617,26 +204,21 @@ Train Confusion matrix F
 Test Confusion matrix F
  [[2012  391]
  [ 369  912]]
-Train demographic parity difference for Female: 0.06941032798860902
-Train equalised odds difference for Female: 0.012593417363171544
-Test demographic parity difference for Female: 0.06243194242319178
-Test equalised odds difference for Female: 0.03508964729719144
-
 Train Confusion matrix M
  [[7340 1433]
  [2032 5726]]
 Test Confusion matrix M
  [[1950  339]
  [ 469 1385]]
-Train demographic parity difference for Male: 0.06941032798860902
-Train equalised odds difference for Male: 0.012593417363171544
-Test demographic parity difference for Male: 0.06243194242319178
-Test equalised odds difference for Male: 0.03508964729719144
+Train demographic parity difference for SEX: 0.0694
+Train equalised odds difference for SEX: 0.0126
+Test demographic parity difference for SEX: 0.0624
+Test equalised odds difference for SEX: 0.0351
 
 
 -------------------Ada Boost without rac1p--------------------
-Cross validation scores: ['0.8049', '0.8027', '0.7972', '0.8024', '0.8045']. Mean: 0.8023
-Training time: 2.2668 seconds
+Cross validation scores: [0.8049, 0.8027, 0.7972, 0.8024, 0.8045]. Mean: 0.8023
+Training time: 1.1255 seconds
 Accuracy: 0.7967
 Classification report:
               precision    recall  f1-score   support
@@ -651,7 +233,7 @@ weighted avg       0.80      0.80      0.80      7827
 Confusion matrix:
 [[3936  756]
  [ 835 2300]]
-Grid search time: 30.6315 seconds
+Grid search time: 49.4185 seconds
 Best parameters for AdaBoostClassifier(): {'learning_rate': 1, 'n_estimators': 100}
 Accuracy: 0.8009
 Classification report:
@@ -667,8 +249,8 @@ weighted avg       0.80      0.80      0.80      7827
 Confusion matrix:
 [[3959  733]
  [ 825 2310]]
-Prediction correlation:
-['0.0717', '0.4632', '-0.3241', '-0.4606', '-0.1129', '-0.2646', '0.4087', '-0.1277']
+Prediction correlations:
+[0.0717, 0.4632, -0.3241, -0.4606, -0.1129, -0.2646, 0.4087, -0.1277]
 Permutation importance
  {'importances_mean': array([0.0039862 , 0.04088412, 0.0069503 , 0.04149738, 0.00488054,
        0.03286061, 0.05631787, 0.00853456]), 'importances_std': array([0.00179669, 0.00364247, 0.00072993, 0.00219127, 0.00177659,
@@ -687,10 +269,8 @@ Train Confusion matrix for RAC1P category White:
 Test Confusion matrix for RAC1P category White:
 [[2312  438]
  [ 514 1585]]
-Train demographic parity difference for White: 0.8599556295063783
-Train equalised odds difference for White: 0.9333562349708004
-Test demographic parity difference for White: 0.8688340807174888
-Test equalised odds difference for White: 0.5977653631284916
+Train rates for White - TPR: 0.7635, TNR: 0.8290
+Test rates for White - TPR: 0.7551, TNR: 0.8407
 
 Train Confusion matrix for RAC1P category Black / African American:
 [[715 140]
@@ -698,10 +278,8 @@ Train Confusion matrix for RAC1P category Black / African American:
 Test Confusion matrix for RAC1P category Black / African American:
 [[198  53]
  [ 32  75]]
-Train demographic parity difference for Black / African American: 0.8599556295063783
-Train equalised odds difference for Black / African American: 0.9333562349708004
-Test demographic parity difference for Black / African American: 0.8688340807174888
-Test equalised odds difference for Black / African American: 0.5977653631284916
+Train rates for Black / African American - TPR: 0.6370, TNR: 0.8363
+Test rates for Black / African American - TPR: 0.7009, TNR: 0.7888
 
 Train Confusion matrix for RAC1P category American Indian:
 [[125  20]
@@ -709,20 +287,16 @@ Train Confusion matrix for RAC1P category American Indian:
 Test Confusion matrix for RAC1P category American Indian:
 [[40  3]
  [ 3 11]]
-Train demographic parity difference for American Indian: 0.8599556295063783
-Train equalised odds difference for American Indian: 0.9333562349708004
-Test demographic parity difference for American Indian: 0.8688340807174888
-Test equalised odds difference for American Indian: 0.5977653631284916
+Train rates for American Indian - TPR: 0.6182, TNR: 0.8621
+Test rates for American Indian - TPR: 0.7857, TNR: 0.9302
 
 Train Confusion matrix for RAC1P category Alaska Native:
 [[0 1]
  [0 1]]
 Test Confusion matrix for RAC1P category Alaska Native:
 [[1]]
-Train demographic parity difference for Alaska Native: 0.8599556295063783
-Train equalised odds difference for Alaska Native: 0.9333562349708004
-Test demographic parity difference for Alaska Native: 0.8688340807174888
-Test equalised odds difference for Alaska Native: 0.5977653631284916
+Train rates for Alaska Native - TPR: 1.0000, TNR: 0.0000
+Not enough data to measure test rates
 
 Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[44  5]
@@ -730,10 +304,8 @@ Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[12  1]
  [ 2  2]]
-Train demographic parity difference for Am. Indian and/or Alaska Native: 0.8599556295063783
-Train equalised odds difference for Am. Indian and/or Alaska Native: 0.9333562349708004
-Test demographic parity difference for Am. Indian and/or Alaska Native: 0.8688340807174888
-Test equalised odds difference for Am. Indian and/or Alaska Native: 0.5977653631284916
+Train rates for Am. Indian and/or Alaska Native - TPR: 0.5556, TNR: 0.8980
+Test rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.9231
 
 Train Confusion matrix for RAC1P category Asian:
 [[2119  625]
@@ -741,10 +313,8 @@ Train Confusion matrix for RAC1P category Asian:
 Test Confusion matrix for RAC1P category Asian:
 [[562 160]
  [127 473]]
-Train demographic parity difference for Asian: 0.8599556295063783
-Train equalised odds difference for Asian: 0.9333562349708004
-Test demographic parity difference for Asian: 0.8688340807174888
-Test equalised odds difference for Asian: 0.5977653631284916
+Train rates for Asian - TPR: 0.8087, TNR: 0.7722
+Test rates for Asian - TPR: 0.7883, TNR: 0.7784
 
 Train Confusion matrix for RAC1P category Native Hawaiian:
 [[55 10]
@@ -752,10 +322,8 @@ Train Confusion matrix for RAC1P category Native Hawaiian:
 Test Confusion matrix for RAC1P category Native Hawaiian:
 [[15  7]
  [ 0  5]]
-Train demographic parity difference for Native Hawaiian: 0.8599556295063783
-Train equalised odds difference for Native Hawaiian: 0.9333562349708004
-Test demographic parity difference for Native Hawaiian: 0.8688340807174888
-Test equalised odds difference for Native Hawaiian: 0.5977653631284916
+Train rates for Native Hawaiian - TPR: 0.7097, TNR: 0.8462
+Test rates for Native Hawaiian - TPR: 1.0000, TNR: 0.6818
 
 Train Confusion matrix for RAC1P category Other race alone:
 [[2717  194]
@@ -763,10 +331,8 @@ Train Confusion matrix for RAC1P category Other race alone:
 Test Confusion matrix for RAC1P category Other race alone:
 [[668  45]
  [107  72]]
-Train demographic parity difference for Other race alone: 0.8599556295063783
-Train equalised odds difference for Other race alone: 0.9333562349708004
-Test demographic parity difference for Other race alone: 0.8688340807174888
-Test equalised odds difference for Other race alone: 0.5977653631284916
+Train rates for Other race alone - TPR: 0.4475, TNR: 0.9334
+Test rates for Other race alone - TPR: 0.4022, TNR: 0.9369
 
 Train Confusion matrix for RAC1P category Two+ races:
 [[724 109]
@@ -774,10 +340,8 @@ Train Confusion matrix for RAC1P category Two+ races:
 Test Confusion matrix for RAC1P category Two+ races:
 [[152  26]
  [ 40  86]]
-Train demographic parity difference for Two+ races: 0.8599556295063783
-Train equalised odds difference for Two+ races: 0.9333562349708004
-Test demographic parity difference for Two+ races: 0.8688340807174888
-Test equalised odds difference for Two+ races: 0.5977653631284916
+Train rates for Two+ races - TPR: 0.7753, TNR: 0.8691
+Test rates for Two+ races - TPR: 0.6825, TNR: 0.8539
 
 ---------------------------------------------------
 
@@ -785,8 +349,8 @@ Test equalised odds difference for Two+ races: 0.5977653631284916
 
 
 --------------------------Gradient---------------------------
-Cross validation scores: ['0.8130', '0.8080', '0.8013', '0.8074', '0.8123']. Mean: 0.8084
-Training time: 4.2352 seconds
+Cross validation scores: [0.8130, 0.8080, 0.8013, 0.8074, 0.8123]. Mean: 0.8084
+Training time: 3.9540 seconds
 Accuracy: 0.8038
 Classification report:
               precision    recall  f1-score   support
@@ -801,7 +365,7 @@ weighted avg       0.80      0.80      0.80      7827
 Confusion matrix:
 [[3956  736]
  [ 800 2335]]
-Grid search time: 131.6466 seconds
+Grid search time: 190.9260 seconds
 Best parameters for GradientBoostingClassifier(): {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100}
 Accuracy: 0.8113
 Classification report:
@@ -817,19 +381,19 @@ weighted avg       0.81      0.81      0.81      7827
 Confusion matrix:
 [[3972  720]
  [ 757 2378]]
-Prediction correlation:
-['0.0750', '0.4638', '-0.3240', '-0.4654', '-0.1186', '-0.2693', '0.3848', '-0.1179', '-0.1199']
+Prediction correlations:
+[0.0750, 0.4638, -0.3240, -0.4654, -0.1186, -0.2693, 0.3848, -0.1179, -0.1199]
 Permutation importance
- {'importances_mean': array([0.0039862 , 0.03950428, 0.00697585, 0.05575572, 0.00454836,
-       0.02657468, 0.05938418, 0.00884119, 0.00056216]), 'importances_std': array([0.00179488, 0.00225298, 0.00076487, 0.00249919, 0.00142637,
-       0.00131043, 0.00118593, 0.00087179, 0.00087627]), 'importances': array([[ 0.00204421,  0.00229973,  0.00408841,  0.0044717 ,  0.00702696],
-       [ 0.0392232 ,  0.03858439,  0.0402453 ,  0.03628466,  0.04318385],
-       [ 0.00741025,  0.00664367,  0.00753801,  0.00562157,  0.00766577],
-       [ 0.05557685,  0.05723777,  0.05544909,  0.05148844,  0.05902645],
-       [ 0.00293855,  0.00574933,  0.0054938 ,  0.00268302,  0.00587709],
-       [ 0.02657468,  0.02861888,  0.02568034,  0.024786  ,  0.02721349],
-       [ 0.0615817 ,  0.05838763,  0.05877092,  0.0585154 ,  0.05966526],
-       [ 0.00907116,  0.00856011,  0.01009327,  0.00907116,  0.00741025],
+ {'importances_mean': array([0.00383289, 0.03940207, 0.0068992 , 0.05583238, 0.00457391,
+       0.02670244, 0.05943529, 0.00876453, 0.00056216]), 'importances_std': array([0.00185498, 0.00220494, 0.00077505, 0.00259078, 0.0014005 ,
+       0.00129539, 0.00120233, 0.00083819, 0.00087627]), 'importances': array([[ 0.00178868,  0.00204421,  0.00396065,  0.0044717 ,  0.0068992 ],
+       [ 0.03935096,  0.0382011 ,  0.0402453 ,  0.03628466,  0.04292833],
+       [ 0.00728248,  0.00664367,  0.00753801,  0.0054938 ,  0.00753801],
+       [ 0.05570461,  0.05762106,  0.05544909,  0.05136067,  0.05902645],
+       [ 0.00293855,  0.00587709,  0.00536604,  0.00281078,  0.00587709],
+       [ 0.02670244,  0.02874665,  0.02568034,  0.02504152,  0.02734125],
+       [ 0.0615817 ,  0.05838763,  0.05877092,  0.0585154 ,  0.05992079],
+       [ 0.00907116,  0.00843235,  0.0099655 ,  0.0089434 ,  0.00741025],
        [ 0.00217197, -0.00038329,  0.00038329,  0.00063881,  0.        ]])}
 ----------------------sex feature metrics----------------------
 Train Confusion matrix F
@@ -838,21 +402,16 @@ Train Confusion matrix F
 Test Confusion matrix F
  [[2072  331]
  [ 379  902]]
-Train demographic parity difference for Female: 0.12705084770744518
-Train equalised odds difference for Female: 0.05987246927326417
-Test demographic parity difference for Female: 0.11546633739575646
-Test equalised odds difference for Female: 0.09197911219238608
-
 Train Confusion matrix M
  [[7175 1598]
  [1657 6101]]
 Test Confusion matrix M
  [[1900  389]
  [ 378 1476]]
-Train demographic parity difference for Male: 0.12705084770744518
-Train equalised odds difference for Male: 0.05987246927326417
-Test demographic parity difference for Male: 0.11546633739575646
-Test equalised odds difference for Male: 0.09197911219238608
+Train demographic parity difference for SEX: 0.1271
+Train equalised odds difference for SEX: 0.0599
+Test demographic parity difference for SEX: 0.1155
+Test equalised odds difference for SEX: 0.0920
 
 ----------------------race feature metrics----------------------
 Train Confusion matrix for RAC1P category White:
@@ -861,10 +420,8 @@ Train Confusion matrix for RAC1P category White:
 Test Confusion matrix for RAC1P category White:
 [[2297  453]
  [ 455 1644]]
-Train demographic parity difference for White: 0.37603993344425957
-Train equalised odds difference for White: 0.5683453237410072
-Test demographic parity difference for White: 0.8733183856502242
-Test equalised odds difference for White: 0.6089385474860336
+Train rates for White - TPR: 0.7829, TNR: 0.8294
+Test rates for White - TPR: 0.7832, TNR: 0.8353
 
 Train Confusion matrix for RAC1P category Black / African American:
 [[721 134]
@@ -872,10 +429,8 @@ Train Confusion matrix for RAC1P category Black / African American:
 Test Confusion matrix for RAC1P category Black / African American:
 [[200  51]
  [ 31  76]]
-Train demographic parity difference for Black / African American: 0.37603993344425957
-Train equalised odds difference for Black / African American: 0.5683453237410072
-Test demographic parity difference for Black / African American: 0.8733183856502242
-Test equalised odds difference for Black / African American: 0.6089385474860336
+Train rates for Black / African American - TPR: 0.6565, TNR: 0.8433
+Test rates for Black / African American - TPR: 0.7103, TNR: 0.7968
 
 Train Confusion matrix for RAC1P category American Indian:
 [[125  20]
@@ -883,20 +438,16 @@ Train Confusion matrix for RAC1P category American Indian:
 Test Confusion matrix for RAC1P category American Indian:
 [[41  2]
  [ 3 11]]
-Train demographic parity difference for American Indian: 0.37603993344425957
-Train equalised odds difference for American Indian: 0.5683453237410072
-Test demographic parity difference for American Indian: 0.8733183856502242
-Test equalised odds difference for American Indian: 0.6089385474860336
+Train rates for American Indian - TPR: 0.6182, TNR: 0.8621
+Test rates for American Indian - TPR: 0.7857, TNR: 0.9535
 
 Train Confusion matrix for RAC1P category Alaska Native:
 [[1 0]
  [0 1]]
 Test Confusion matrix for RAC1P category Alaska Native:
 [[1]]
-Train demographic parity difference for Alaska Native: 0.37603993344425957
-Train equalised odds difference for Alaska Native: 0.5683453237410072
-Test demographic parity difference for Alaska Native: 0.8733183856502242
-Test equalised odds difference for Alaska Native: 0.6089385474860336
+Train rates for Alaska Native - TPR: 1.0000, TNR: 1.0000
+Not enough data to measure test rates
 
 Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[43  6]
@@ -904,10 +455,8 @@ Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[11  2]
  [ 2  2]]
-Train demographic parity difference for Am. Indian and/or Alaska Native: 0.37603993344425957
-Train equalised odds difference for Am. Indian and/or Alaska Native: 0.5683453237410072
-Test demographic parity difference for Am. Indian and/or Alaska Native: 0.8733183856502242
-Test equalised odds difference for Am. Indian and/or Alaska Native: 0.6089385474860336
+Train rates for Am. Indian and/or Alaska Native - TPR: 0.6667, TNR: 0.8776
+Test rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.8462
 
 Train Confusion matrix for RAC1P category Asian:
 [[2179  565]
@@ -915,10 +464,8 @@ Train Confusion matrix for RAC1P category Asian:
 Test Confusion matrix for RAC1P category Asian:
 [[579 143]
  [115 485]]
-Train demographic parity difference for Asian: 0.37603993344425957
-Train equalised odds difference for Asian: 0.5683453237410072
-Test demographic parity difference for Asian: 0.8733183856502242
-Test equalised odds difference for Asian: 0.6089385474860336
+Train rates for Asian - TPR: 0.8076, TNR: 0.7941
+Test rates for Asian - TPR: 0.8083, TNR: 0.8019
 
 Train Confusion matrix for RAC1P category Native Hawaiian:
 [[57  8]
@@ -926,10 +473,8 @@ Train Confusion matrix for RAC1P category Native Hawaiian:
 Test Confusion matrix for RAC1P category Native Hawaiian:
 [[17  5]
  [ 0  5]]
-Train demographic parity difference for Native Hawaiian: 0.37603993344425957
-Train equalised odds difference for Native Hawaiian: 0.5683453237410072
-Test demographic parity difference for Native Hawaiian: 0.8733183856502242
-Test equalised odds difference for Native Hawaiian: 0.6089385474860336
+Train rates for Native Hawaiian - TPR: 0.6774, TNR: 0.8769
+Test rates for Native Hawaiian - TPR: 1.0000, TNR: 0.7727
 
 Train Confusion matrix for RAC1P category Other race alone:
 [[2764  147]
@@ -937,10 +482,8 @@ Train Confusion matrix for RAC1P category Other race alone:
 Test Confusion matrix for RAC1P category Other race alone:
 [[670  43]
  [109  70]]
-Train demographic parity difference for Other race alone: 0.37603993344425957
-Train equalised odds difference for Other race alone: 0.5683453237410072
-Test demographic parity difference for Other race alone: 0.8733183856502242
-Test equalised odds difference for Other race alone: 0.6089385474860336
+Train rates for Other race alone - TPR: 0.4317, TNR: 0.9495
+Test rates for Other race alone - TPR: 0.3911, TNR: 0.9397
 
 Train Confusion matrix for RAC1P category Two+ races:
 [[734  99]
@@ -948,15 +491,13 @@ Train Confusion matrix for RAC1P category Two+ races:
 Test Confusion matrix for RAC1P category Two+ races:
 [[157  21]
  [ 42  84]]
-Train demographic parity difference for Two+ races: 0.37603993344425957
-Train equalised odds difference for Two+ races: 0.5683453237410072
-Test demographic parity difference for Two+ races: 0.8733183856502242
-Test equalised odds difference for Two+ races: 0.6089385474860336
+Train rates for Two+ races - TPR: 0.7526, TNR: 0.8812
+Test rates for Two+ races - TPR: 0.6667, TNR: 0.8820
 
 
 --------------------Gradient without sex---------------------
-Cross validation scores: ['0.8020', '0.8008', '0.8007', '0.8043', '0.8066']. Mean: 0.8029
-Training time: 6.8804 seconds
+Cross validation scores: [0.8020, 0.8008, 0.8007, 0.8043, 0.8066]. Mean: 0.8029
+Training time: 3.7657 seconds
 Accuracy: 0.8009
 Classification report:
               precision    recall  f1-score   support
@@ -971,7 +512,7 @@ weighted avg       0.80      0.80      0.80      7827
 Confusion matrix:
 [[3961  731]
  [ 827 2308]]
-Grid search time: 121.9952 seconds
+Grid search time: 195.2328 seconds
 Best parameters for GradientBoostingClassifier(): {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100}
 Accuracy: 0.8101
 Classification report:
@@ -987,18 +528,18 @@ weighted avg       0.81      0.81      0.81      7827
 Confusion matrix:
 [[3962  730]
  [ 756 2379]]
-Prediction correlation:
-['0.0773', '0.4628', '-0.3214', '-0.4674', '-0.1174', '-0.2672', '0.3933', '-0.1211']
+Prediction correlations:
+[0.0773, 0.4628, -0.3214, -0.4674, -0.1174, -0.2672, 0.3933, -0.1211]
 Permutation importance
- {'importances_mean': array([0.00311741, 0.03822665, 0.00539159, 0.05892424, 0.00470167,
-       0.02844002, 0.06487799, 0.00160981]), 'importances_std': array([0.00169997, 0.00385954, 0.00156769, 0.00178758, 0.00134582,
-       0.0016092 , 0.00141673, 0.00035774]), 'importances': array([[0.00051105, 0.00204421, 0.00383289, 0.00370512, 0.0054938 ],
-       [0.04037307, 0.03602913, 0.04101188, 0.03168519, 0.04203398],
-       [0.00613262, 0.00357736, 0.00753801, 0.00357736, 0.00613262],
-       [0.0560879 , 0.05813211, 0.06107065, 0.05877092, 0.0605596 ],
-       [0.00357736, 0.00651591, 0.00498275, 0.00281078, 0.00562157],
-       [0.02644691, 0.0302798 , 0.02734125, 0.02772454, 0.03040756],
-       [0.06541459, 0.06528683, 0.06209276, 0.06554235, 0.0660534 ],
+ {'importances_mean': array([0.00332183, 0.03830331, 0.00539159, 0.05887313, 0.00470167,
+       0.02838891, 0.0649802 , 0.00160981]), 'importances_std': array([0.00173118, 0.00386038, 0.00161083, 0.00189572, 0.00139349,
+       0.00173945, 0.00141026, 0.00035774]), 'importances': array([[0.00063881, 0.00229973, 0.00408841, 0.00383289, 0.00574933],
+       [0.04037307, 0.03602913, 0.04113964, 0.03181296, 0.04216175],
+       [0.00626038, 0.00357736, 0.00753801, 0.0034496 , 0.00613262],
+       [0.05583238, 0.05838763, 0.06119842, 0.05838763, 0.0605596 ],
+       [0.0034496 , 0.00664367, 0.00511051, 0.00281078, 0.0054938 ],
+       [0.02606363, 0.0302798 , 0.02734125, 0.02772454, 0.03053533],
+       [0.06554235, 0.06528683, 0.06222052, 0.06567012, 0.06618117],
        [0.00229973, 0.00140539, 0.00153315, 0.00127763, 0.00153315]])}
 ----------------------sex feature metrics----------------------
 Train Confusion matrix F
@@ -1007,26 +548,21 @@ Train Confusion matrix F
 Test Confusion matrix F
  [[2015  388]
  [ 331  950]]
-Train demographic parity difference for Female: 0.05792249417875722
-Train equalised odds difference for Female: 0.023582135943189142
-Test demographic parity difference for Female: 0.06427583593377156
-Test equalised odds difference for Female: 0.029157792885311506
-
 Train Confusion matrix M
  [[7443 1330]
  [1988 5770]]
 Test Confusion matrix M
  [[1947  342]
  [ 425 1429]]
-Train demographic parity difference for Male: 0.05792249417875722
-Train equalised odds difference for Male: 0.023582135943189142
-Test demographic parity difference for Male: 0.06427583593377156
-Test equalised odds difference for Male: 0.029157792885311506
+Train demographic parity difference for SEX: 0.0579
+Train equalised odds difference for SEX: 0.0236
+Test demographic parity difference for SEX: 0.0643
+Test equalised odds difference for SEX: 0.0292
 
 
 -------------------Gradient without rac1p--------------------
-Cross validation scores: ['0.8127', '0.8077', '0.8018', '0.8067', '0.8101']. Mean: 0.8078
-Training time: 4.7456 seconds
+Cross validation scores: [0.8127, 0.8077, 0.8018, 0.8067, 0.8101]. Mean: 0.8078
+Training time: 3.5224 seconds
 Accuracy: 0.8052
 Classification report:
               precision    recall  f1-score   support
@@ -1041,7 +577,7 @@ weighted avg       0.80      0.81      0.80      7827
 Confusion matrix:
 [[3967  725]
  [ 800 2335]]
-Grid search time: 120.4654 seconds
+Grid search time: 182.9494 seconds
 Best parameters for GradientBoostingClassifier(): {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100}
 Accuracy: 0.8117
 Classification report:
@@ -1057,18 +593,18 @@ weighted avg       0.81      0.81      0.81      7827
 Confusion matrix:
 [[3960  732]
  [ 742 2393]]
-Prediction correlation:
-['0.0765', '0.4646', '-0.3262', '-0.4681', '-0.1261', '-0.2665', '0.3898', '-0.1212']
+Prediction correlations:
+[0.0765, 0.4646, -0.3262, -0.4681, -0.1261, -0.2665, 0.3898, -0.1212]
 Permutation importance
- {'importances_mean': array([0.0050083 , 0.04126741, 0.0079724 , 0.05785103, 0.00528938,
-       0.0282867 , 0.06081513, 0.00817682]), 'importances_std': array([0.00138173, 0.00190019, 0.00164333, 0.00254425, 0.00163736,
-       0.00195873, 0.00102847, 0.0011793 ]), 'importances': array([[0.00306631, 0.00370512, 0.0054938 , 0.00626038, 0.00651591],
-       [0.04356714, 0.04203398, 0.04113964, 0.03781781, 0.04177846],
-       [0.00843235, 0.00677143, 0.01009327, 0.0054938 , 0.00907116],
-       [0.05762106, 0.0585154 , 0.05672672, 0.05429922, 0.06209276],
-       [0.00523828, 0.00728248, 0.00511051, 0.00242749, 0.00638814],
-       [0.02951322, 0.02964099, 0.02555257, 0.02631915, 0.03040756],
-       [0.06119842, 0.05889868, 0.06081513, 0.06119842, 0.06196499],
+ {'importances_mean': array([0.00490609, 0.04119075, 0.00799796, 0.05795324, 0.00534049,
+       0.02841446, 0.06081513, 0.00817682]), 'importances_std': array([0.00148249, 0.00186481, 0.00165126, 0.00260661, 0.00163497,
+       0.00201136, 0.00100601, 0.0011793 ]), 'importances': array([[0.00293855, 0.00332183, 0.00562157, 0.00613262, 0.00651591],
+       [0.04343938, 0.0416507 , 0.04101188, 0.03781781, 0.04203398],
+       [0.00856011, 0.00677143, 0.01009327, 0.0054938 , 0.00907116],
+       [0.05774882, 0.05864316, 0.05698224, 0.05417146, 0.06222052],
+       [0.00523828, 0.00728248, 0.00536604, 0.00242749, 0.00638814],
+       [0.02976875, 0.02976875, 0.02555257, 0.02644691, 0.03053533],
+       [0.06107065, 0.05889868, 0.06094289, 0.06132618, 0.06183723],
        [0.00728248, 0.0089434 , 0.01009327, 0.00766577, 0.0068992 ]])}
 ----------------------race feature metrics----------------------
 Train Confusion matrix for RAC1P category White:
@@ -1077,10 +613,8 @@ Train Confusion matrix for RAC1P category White:
 Test Confusion matrix for RAC1P category White:
 [[2305  445]
  [ 453 1646]]
-Train demographic parity difference for White: 0.3616195230171936
-Train equalised odds difference for White: 0.543884892086331
-Test demographic parity difference for White: 0.8486547085201794
-Test equalised odds difference for White: 0.553072625698324
+Train rates for White - TPR: 0.7778, TNR: 0.8351
+Test rates for White - TPR: 0.7842, TNR: 0.8382
 
 Train Confusion matrix for RAC1P category Black / African American:
 [[728 127]
@@ -1088,10 +622,8 @@ Train Confusion matrix for RAC1P category Black / African American:
 Test Confusion matrix for RAC1P category Black / African American:
 [[198  53]
  [ 31  76]]
-Train demographic parity difference for Black / African American: 0.3616195230171936
-Train equalised odds difference for Black / African American: 0.543884892086331
-Test demographic parity difference for Black / African American: 0.8486547085201794
-Test equalised odds difference for Black / African American: 0.553072625698324
+Train rates for Black / African American - TPR: 0.6587, TNR: 0.8515
+Test rates for Black / African American - TPR: 0.7103, TNR: 0.7888
 
 Train Confusion matrix for RAC1P category American Indian:
 [[126  19]
@@ -1099,20 +631,16 @@ Train Confusion matrix for RAC1P category American Indian:
 Test Confusion matrix for RAC1P category American Indian:
 [[41  2]
  [ 3 11]]
-Train demographic parity difference for American Indian: 0.3616195230171936
-Train equalised odds difference for American Indian: 0.543884892086331
-Test demographic parity difference for American Indian: 0.8486547085201794
-Test equalised odds difference for American Indian: 0.553072625698324
+Train rates for American Indian - TPR: 0.6545, TNR: 0.8690
+Test rates for American Indian - TPR: 0.7857, TNR: 0.9535
 
 Train Confusion matrix for RAC1P category Alaska Native:
 [[1 0]
  [0 1]]
 Test Confusion matrix for RAC1P category Alaska Native:
 [[1]]
-Train demographic parity difference for Alaska Native: 0.3616195230171936
-Train equalised odds difference for Alaska Native: 0.543884892086331
-Test demographic parity difference for Alaska Native: 0.8486547085201794
-Test equalised odds difference for Alaska Native: 0.553072625698324
+Train rates for Alaska Native - TPR: 1.0000, TNR: 1.0000
+Not enough data to measure test rates
 
 Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[43  6]
@@ -1120,10 +648,8 @@ Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[12  1]
  [ 2  2]]
-Train demographic parity difference for Am. Indian and/or Alaska Native: 0.3616195230171936
-Train equalised odds difference for Am. Indian and/or Alaska Native: 0.543884892086331
-Test demographic parity difference for Am. Indian and/or Alaska Native: 0.8486547085201794
-Test equalised odds difference for Am. Indian and/or Alaska Native: 0.553072625698324
+Train rates for Am. Indian and/or Alaska Native - TPR: 0.6667, TNR: 0.8776
+Test rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.9231
 
 Train Confusion matrix for RAC1P category Asian:
 [[2181  563]
@@ -1131,10 +657,8 @@ Train Confusion matrix for RAC1P category Asian:
 Test Confusion matrix for RAC1P category Asian:
 [[576 146]
  [116 484]]
-Train demographic parity difference for Asian: 0.3616195230171936
-Train equalised odds difference for Asian: 0.543884892086331
-Test demographic parity difference for Asian: 0.8486547085201794
-Test equalised odds difference for Asian: 0.553072625698324
+Train rates for Asian - TPR: 0.8041, TNR: 0.7948
+Test rates for Asian - TPR: 0.8067, TNR: 0.7978
 
 Train Confusion matrix for RAC1P category Native Hawaiian:
 [[57  8]
@@ -1142,10 +666,8 @@ Train Confusion matrix for RAC1P category Native Hawaiian:
 Test Confusion matrix for RAC1P category Native Hawaiian:
 [[17  5]
  [ 0  5]]
-Train demographic parity difference for Native Hawaiian: 0.3616195230171936
-Train equalised odds difference for Native Hawaiian: 0.543884892086331
-Test demographic parity difference for Native Hawaiian: 0.8486547085201794
-Test equalised odds difference for Native Hawaiian: 0.553072625698324
+Train rates for Native Hawaiian - TPR: 0.6774, TNR: 0.8769
+Test rates for Native Hawaiian - TPR: 1.0000, TNR: 0.7727
 
 Train Confusion matrix for RAC1P category Other race alone:
 [[2729  182]
@@ -1153,10 +675,8 @@ Train Confusion matrix for RAC1P category Other race alone:
 Test Confusion matrix for RAC1P category Other race alone:
 [[658  55]
  [ 99  80]]
-Train demographic parity difference for Other race alone: 0.3616195230171936
-Train equalised odds difference for Other race alone: 0.543884892086331
-Test demographic parity difference for Other race alone: 0.8486547085201794
-Test equalised odds difference for Other race alone: 0.553072625698324
+Train rates for Other race alone - TPR: 0.4561, TNR: 0.9375
+Test rates for Other race alone - TPR: 0.4469, TNR: 0.9229
 
 Train Confusion matrix for RAC1P category Two+ races:
 [[727 106]
@@ -1164,10 +684,352 @@ Train Confusion matrix for RAC1P category Two+ races:
 Test Confusion matrix for RAC1P category Two+ races:
 [[153  25]
  [ 38  88]]
-Train demographic parity difference for Two+ races: 0.3616195230171936
-Train equalised odds difference for Two+ races: 0.543884892086331
-Test demographic parity difference for Two+ races: 0.8486547085201794
-Test equalised odds difference for Two+ races: 0.553072625698324
+Train rates for Two+ races - TPR: 0.7876, TNR: 0.8727
+Test rates for Two+ races - TPR: 0.6984, TNR: 0.8596
+
+---------------------------------------------------
+
+
+
+
+--------------------------Random Forest---------------------------
+Cross validation scores: [0.7938, 0.7906, 0.7876, 0.7916, 0.8008]. Mean: 0.7929
+Training time: 5.0589 seconds
+Accuracy: 0.7948
+Classification report:
+              precision    recall  f1-score   support
+
+       False       0.82      0.84      0.83      4692
+        True       0.75      0.73      0.74      3135
+
+    accuracy                           0.79      7827
+   macro avg       0.79      0.78      0.79      7827
+weighted avg       0.79      0.79      0.79      7827
+
+Confusion matrix:
+[[3920  772]
+ [ 834 2301]]
+Grid search time: 109.2144 seconds
+Best parameters for RandomForestClassifier(): {'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 100}
+Accuracy: 0.8063
+Classification report:
+              precision    recall  f1-score   support
+
+       False       0.83      0.85      0.84      4692
+        True       0.76      0.75      0.76      3135
+
+    accuracy                           0.81      7827
+   macro avg       0.80      0.80      0.80      7827
+weighted avg       0.81      0.81      0.81      7827
+
+Confusion matrix:
+[[3972  720]
+ [ 796 2339]]
+Prediction correlations:
+[0.0734, 0.4679, -0.3206, -0.4817, -0.1265, -0.2789, 0.3987, -0.1232, -0.1231]
+Permutation importance
+ {'importances_mean': array([0.00306631, 0.04709339, 0.00684809, 0.04688897, 0.00536604,
+       0.02981985, 0.06671777, 0.01050211, 0.00298965]), 'importances_std': array([0.00117653, 0.00303485, 0.00155136, 0.0021333 , 0.00105665,
+       0.00231896, 0.00234528, 0.00114103, 0.00118372]), 'importances': array([[0.00114987, 0.00370512, 0.00293855, 0.00472723, 0.00281078],
+       [0.04791108, 0.04599463, 0.04829437, 0.04203398, 0.05123291],
+       [0.0089434 , 0.00728248, 0.00779354, 0.00459946, 0.00562157],
+       [0.04625016, 0.05021081, 0.04701674, 0.04356714, 0.04740003],
+       [0.00536604, 0.00613262, 0.00600485, 0.00600485, 0.00332183],
+       [0.02989651, 0.03321835, 0.02836336, 0.02644691, 0.03117414],
+       [0.06720327, 0.06618117, 0.06260381, 0.06963077, 0.06796985],
+       [0.01188195, 0.0113709 , 0.01047656, 0.01022103, 0.00856011],
+       [0.00383289, 0.00319407, 0.00140539, 0.00459946, 0.00191644]])}
+----------------------sex feature metrics----------------------
+Train Confusion matrix F
+ [[9471   82]
+ [  63 5159]]
+Test Confusion matrix F
+ [[2083  320]
+ [ 396  885]]
+Train Confusion matrix M
+ [[8697   76]
+ [  74 7684]]
+Test Confusion matrix M
+ [[1889  400]
+ [ 400 1454]]
+Train demographic parity difference for SEX: 0.1147
+Train equalised odds difference for SEX: 0.0025
+Test demographic parity difference for SEX: 0.1204
+Test equalised odds difference for SEX: 0.0934
+
+----------------------race feature metrics----------------------
+Train Confusion matrix for RAC1P category White:
+[[10596   127]
+ [  100  8521]]
+Test Confusion matrix for RAC1P category White:
+[[2291  459]
+ [ 479 1620]]
+Train rates for White - TPR: 0.9884, TNR: 0.9882
+Test rates for White - TPR: 0.7718, TNR: 0.8331
+
+Train Confusion matrix for RAC1P category Black / African American:
+[[853   2]
+ [  1 459]]
+Test Confusion matrix for RAC1P category Black / African American:
+[[198  53]
+ [ 35  72]]
+Train rates for Black / African American - TPR: 0.9978, TNR: 0.9977
+Test rates for Black / African American - TPR: 0.6729, TNR: 0.7888
+
+Train Confusion matrix for RAC1P category American Indian:
+[[145   0]
+ [  0  55]]
+Test Confusion matrix for RAC1P category American Indian:
+[[40  3]
+ [ 3 11]]
+Train rates for American Indian - TPR: 1.0000, TNR: 1.0000
+Test rates for American Indian - TPR: 0.7857, TNR: 0.9302
+
+Train Confusion matrix for RAC1P category Alaska Native:
+[[1 0]
+ [0 1]]
+Test Confusion matrix for RAC1P category Alaska Native:
+[[1]]
+Train rates for Alaska Native - TPR: 1.0000, TNR: 1.0000
+Not enough data to measure test rates
+
+Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
+[[49  0]
+ [ 0 18]]
+Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
+[[12  1]
+ [ 2  2]]
+Train rates for Am. Indian and/or Alaska Native - TPR: 1.0000, TNR: 1.0000
+Test rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.9231
+
+Train Confusion matrix for RAC1P category Asian:
+[[2723   21]
+ [  14 2600]]
+Test Confusion matrix for RAC1P category Asian:
+[[581 141]
+ [124 476]]
+Train rates for Asian - TPR: 0.9946, TNR: 0.9923
+Test rates for Asian - TPR: 0.7933, TNR: 0.8047
+
+Train Confusion matrix for RAC1P category Native Hawaiian:
+[[65  0]
+ [ 0 31]]
+Test Confusion matrix for RAC1P category Native Hawaiian:
+[[20  2]
+ [ 1  4]]
+Train rates for Native Hawaiian - TPR: 1.0000, TNR: 1.0000
+Test rates for Native Hawaiian - TPR: 0.8000, TNR: 0.9091
+
+Train Confusion matrix for RAC1P category Other race alone:
+[[2903    8]
+ [  21  674]]
+Test Confusion matrix for RAC1P category Other race alone:
+[[673  40]
+ [109  70]]
+Train rates for Other race alone - TPR: 0.9698, TNR: 0.9973
+Test rates for Other race alone - TPR: 0.3911, TNR: 0.9439
+
+Train Confusion matrix for RAC1P category Two+ races:
+[[833   0]
+ [  1 484]]
+Test Confusion matrix for RAC1P category Two+ races:
+[[157  21]
+ [ 43  83]]
+Train rates for Two+ races - TPR: 0.9979, TNR: 1.0000
+Test rates for Two+ races - TPR: 0.6587, TNR: 0.8820
+
+
+--------------------Random Forest without sex---------------------
+Cross validation scores: [0.7887, 0.7890, 0.7842, 0.7922, 0.7981]. Mean: 0.7905
+Training time: 5.6908 seconds
+Accuracy: 0.7928
+Classification report:
+              precision    recall  f1-score   support
+
+       False       0.82      0.84      0.83      4692
+        True       0.75      0.73      0.74      3135
+
+    accuracy                           0.79      7827
+   macro avg       0.78      0.78      0.78      7827
+weighted avg       0.79      0.79      0.79      7827
+
+Confusion matrix:
+[[3929  763]
+ [ 859 2276]]
+Grid search time: 111.7423 seconds
+Best parameters for RandomForestClassifier(): {'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 100}
+Accuracy: 0.8062
+Classification report:
+              precision    recall  f1-score   support
+
+       False       0.83      0.85      0.84      4692
+        True       0.77      0.74      0.75      3135
+
+    accuracy                           0.81      7827
+   macro avg       0.80      0.80      0.80      7827
+weighted avg       0.81      0.81      0.81      7827
+
+Confusion matrix:
+[[3990  702]
+ [ 815 2320]]
+Prediction correlations:
+[0.0741, 0.4717, -0.3186, -0.4955, -0.1253, -0.2734, 0.3997, -0.1204]
+Permutation importance
+ {'importances_mean': array([0.00633704, 0.04446148, 0.00958222, 0.04844768, 0.00618372,
+       0.02836336, 0.07359141, 0.00516162]), 'importances_std': array([0.00095814, 0.00297553, 0.00175738, 0.00167247, 0.00158467,
+       0.00243756, 0.00278394, 0.00129942]), 'importances': array([[0.00587709, 0.00766577, 0.00523828, 0.00728248, 0.00562157],
+       [0.04663345, 0.04280056, 0.04407819, 0.04011754, 0.04867765],
+       [0.01085984, 0.00779354, 0.01060432, 0.00715472, 0.01149866],
+       [0.04867765, 0.04944423, 0.0505941 , 0.04561135, 0.04791108],
+       [0.00587709, 0.00830459, 0.00741025, 0.00370512, 0.00562157],
+       [0.02900217, 0.03232401, 0.02746902, 0.024786  , 0.02823559],
+       [0.0774243 , 0.07141945, 0.07154721, 0.07652996, 0.07103616],
+       [0.00562157, 0.00472723, 0.00741025, 0.00357736, 0.0044717 ]])}
+----------------------sex feature metrics----------------------
+Train Confusion matrix F
+ [[9436  117]
+ [  72 5150]]
+Test Confusion matrix F
+ [[2020  383]
+ [ 338  943]]
+Train Confusion matrix M
+ [[8683   90]
+ [ 102 7656]]
+Test Confusion matrix M
+ [[1970  319]
+ [ 477 1377]]
+Train demographic parity difference for SEX: 0.1121
+Train equalised odds difference for SEX: 0.0020
+Test demographic parity difference for SEX: 0.0494
+Test equalised odds difference for SEX: 0.0200
+
+
+-------------------Random Forest without rac1p--------------------
+Cross validation scores: [0.7930, 0.7924, 0.7834, 0.7863, 0.7968]. Mean: 0.7904
+Training time: 8.2921 seconds
+Accuracy: 0.7892
+Classification report:
+              precision    recall  f1-score   support
+
+       False       0.82      0.83      0.83      4692
+        True       0.74      0.73      0.73      3135
+
+    accuracy                           0.79      7827
+   macro avg       0.78      0.78      0.78      7827
+weighted avg       0.79      0.79      0.79      7827
+
+Confusion matrix:
+[[3897  795]
+ [ 855 2280]]
+Grid search time: 155.0531 seconds
+Best parameters for RandomForestClassifier(): {'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 100}
+Accuracy: 0.8057
+Classification report:
+              precision    recall  f1-score   support
+
+       False       0.83      0.85      0.84      4692
+        True       0.76      0.74      0.75      3135
+
+    accuracy                           0.81      7827
+   macro avg       0.80      0.80      0.80      7827
+weighted avg       0.80      0.81      0.81      7827
+
+Confusion matrix:
+[[3975  717]
+ [ 804 2331]]
+Prediction correlations:
+[0.0766, 0.4721, -0.3247, -0.4865, -0.1248, -0.2731, 0.3922, -0.1184]
+Permutation importance
+ {'importances_mean': array([0.00375623, 0.04949534, 0.00904561, 0.0436438 , 0.0054427 ,
+       0.02818449, 0.06321707, 0.01211192]), 'importances_std': array([0.00088738, 0.00279984, 0.00164492, 0.00132677, 0.00033899,
+       0.00261162, 0.00173945, 0.00136509]), 'importances': array([[0.00217197, 0.0034496 , 0.00408841, 0.0044717 , 0.00459946],
+       [0.05212725, 0.04791108, 0.04906094, 0.04535582, 0.05302159],
+       [0.01009327, 0.00728248, 0.01175418, 0.00804906, 0.00804906],
+       [0.04497253, 0.04446148, 0.04216175, 0.04190622, 0.04471701],
+       [0.00587709, 0.00562157, 0.00536604, 0.00485499, 0.0054938 ],
+       [0.02964099, 0.03206848, 0.02516929, 0.02542481, 0.02861888],
+       [0.06477578, 0.06234828, 0.06094289, 0.06567012, 0.06234828],
+       [0.01379839, 0.01188195, 0.01098761, 0.01354286, 0.01034879]])}
+----------------------race feature metrics----------------------
+Train Confusion matrix for RAC1P category White:
+[[10569   154]
+ [  132  8489]]
+Test Confusion matrix for RAC1P category White:
+[[2317  433]
+ [ 493 1606]]
+Train rates for White - TPR: 0.9847, TNR: 0.9856
+Test rates for White - TPR: 0.7651, TNR: 0.8425
+
+Train Confusion matrix for RAC1P category Black / African American:
+[[846   9]
+ [  5 455]]
+Test Confusion matrix for RAC1P category Black / African American:
+[[197  54]
+ [ 36  71]]
+Train rates for Black / African American - TPR: 0.9891, TNR: 0.9895
+Test rates for Black / African American - TPR: 0.6636, TNR: 0.7849
+
+Train Confusion matrix for RAC1P category American Indian:
+[[145   0]
+ [  1  54]]
+Test Confusion matrix for RAC1P category American Indian:
+[[39  4]
+ [ 3 11]]
+Train rates for American Indian - TPR: 0.9818, TNR: 1.0000
+Test rates for American Indian - TPR: 0.7857, TNR: 0.9070
+
+Train Confusion matrix for RAC1P category Alaska Native:
+[[1 0]
+ [0 1]]
+Test Confusion matrix for RAC1P category Alaska Native:
+[[1]]
+Train rates for Alaska Native - TPR: 1.0000, TNR: 1.0000
+Not enough data to measure test rates
+
+Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
+[[48  1]
+ [ 0 18]]
+Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
+[[12  1]
+ [ 2  2]]
+Train rates for Am. Indian and/or Alaska Native - TPR: 1.0000, TNR: 0.9796
+Test rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.9231
+
+Train Confusion matrix for RAC1P category Asian:
+[[2707   37]
+ [  19 2595]]
+Test Confusion matrix for RAC1P category Asian:
+[[578 144]
+ [126 474]]
+Train rates for Asian - TPR: 0.9927, TNR: 0.9865
+Test rates for Asian - TPR: 0.7900, TNR: 0.8006
+
+Train Confusion matrix for RAC1P category Native Hawaiian:
+[[65  0]
+ [ 1 30]]
+Test Confusion matrix for RAC1P category Native Hawaiian:
+[[19  3]
+ [ 1  4]]
+Train rates for Native Hawaiian - TPR: 0.9677, TNR: 1.0000
+Test rates for Native Hawaiian - TPR: 0.8000, TNR: 0.8636
+
+Train Confusion matrix for RAC1P category Other race alone:
+[[2892   19]
+ [  44  651]]
+Test Confusion matrix for RAC1P category Other race alone:
+[[659  54]
+ [103  76]]
+Train rates for Other race alone - TPR: 0.9367, TNR: 0.9935
+Test rates for Other race alone - TPR: 0.4246, TNR: 0.9243
+
+Train Confusion matrix for RAC1P category Two+ races:
+[[826   7]
+ [  7 478]]
+Test Confusion matrix for RAC1P category Two+ races:
+[[154  24]
+ [ 40  86]]
+Train rates for Two+ races - TPR: 0.9856, TNR: 0.9916
+Test rates for Two+ races - TPR: 0.6825, TNR: 0.8652
 
 ---------------------------------------------------
 
@@ -1175,8 +1037,8 @@ Test equalised odds difference for Two+ races: 0.553072625698324
 
 
 --------------------------SVM---------------------------
-Cross validation scores: ['0.7811', '0.7807', '0.7719', '0.7748', '0.7789']. Mean: 0.7775
-Training time: 57.8386 seconds
+Cross validation scores: [0.7811, 0.7807, 0.7719, 0.7748, 0.7789]. Mean: 0.7775
+Training time: 39.7984 seconds
 Accuracy: 0.7718
 Classification report:
               precision    recall  f1-score   support
@@ -1191,7 +1053,7 @@ weighted avg       0.77      0.77      0.77      7827
 Confusion matrix:
 [[3860  832]
  [ 954 2181]]
-Grid search time: 735.3520 seconds
+Grid search time: 991.6445 seconds
 Best parameters for SVC(kernel='linear'): {'C': 1, 'gamma': 'scale', 'kernel': 'rbf'}
 Accuracy: 0.7910
 Classification report:
@@ -1207,8 +1069,8 @@ weighted avg       0.79      0.79      0.79      7827
 Confusion matrix:
 [[3898  794]
  [ 842 2293]]
-Prediction correlation:
-['0.0804', '0.4663', '-0.3579', '-0.5062', '-0.1258', '-0.2907', '0.3958', '-0.1330', '-0.1228']
+Prediction correlations:
+[0.0804, 0.4663, -0.3579, -0.5062, -0.1258, -0.2907, 0.3958, -0.1330, -0.1228]
 Permutation importance
  {'importances_mean': array([0.001942  , 0.05309825, 0.02166858, 0.03214514, 0.00462502,
        0.0178868 , 0.05539798, 0.01374729, 0.0025297 ]), 'importances_std': array([0.00082957, 0.00362955, 0.00255219, 0.00197698, 0.00149302,
@@ -1228,21 +1090,16 @@ Train Confusion matrix F
 Test Confusion matrix F
  [[2050  353]
  [ 435  846]]
-Train demographic parity difference for Female: 0.13277949309409048
-Train equalised odds difference for Female: 0.08416466159541369
-Test demographic parity difference for Female: 0.13024696890717125
-Test equalised odds difference for Female: 0.12005310373924094
-
 Train Confusion matrix M
  [[6961 1812]
  [1990 5768]]
 Test Confusion matrix M
  [[1848  441]
  [ 407 1447]]
-Train demographic parity difference for Male: 0.13277949309409048
-Train equalised odds difference for Male: 0.08416466159541369
-Test demographic parity difference for Male: 0.13024696890717125
-Test equalised odds difference for Male: 0.12005310373924094
+Train demographic parity difference for SEX: 0.1328
+Train equalised odds difference for SEX: 0.0842
+Test demographic parity difference for SEX: 0.1302
+Test equalised odds difference for SEX: 0.1201
 
 ----------------------race feature metrics----------------------
 Train Confusion matrix for RAC1P category White:
@@ -1251,10 +1108,8 @@ Train Confusion matrix for RAC1P category White:
 Test Confusion matrix for RAC1P category White:
 [[2248  502]
  [ 505 1594]]
-Train demographic parity difference for White: 0.37132556849694953
-Train equalised odds difference for White: 0.934386808656819
-Test demographic parity difference for White: 0.8778026905829597
-Test equalised odds difference for White: 0.6312849162011174
+Train rates for White - TPR: 0.7351, TNR: 0.8058
+Test rates for White - TPR: 0.7594, TNR: 0.8175
 
 Train Confusion matrix for RAC1P category Black / African American:
 [[702 153]
@@ -1262,10 +1117,8 @@ Train Confusion matrix for RAC1P category Black / African American:
 Test Confusion matrix for RAC1P category Black / African American:
 [[195  56]
  [ 41  66]]
-Train demographic parity difference for Black / African American: 0.37132556849694953
-Train equalised odds difference for Black / African American: 0.934386808656819
-Test demographic parity difference for Black / African American: 0.8778026905829597
-Test equalised odds difference for Black / African American: 0.6312849162011174
+Train rates for Black / African American - TPR: 0.5870, TNR: 0.8211
+Test rates for Black / African American - TPR: 0.6168, TNR: 0.7769
 
 Train Confusion matrix for RAC1P category American Indian:
 [[119  26]
@@ -1273,20 +1126,16 @@ Train Confusion matrix for RAC1P category American Indian:
 Test Confusion matrix for RAC1P category American Indian:
 [[38  5]
  [ 3 11]]
-Train demographic parity difference for American Indian: 0.37132556849694953
-Train equalised odds difference for American Indian: 0.934386808656819
-Test demographic parity difference for American Indian: 0.8778026905829597
-Test equalised odds difference for American Indian: 0.6312849162011174
+Train rates for American Indian - TPR: 0.6000, TNR: 0.8207
+Test rates for American Indian - TPR: 0.7857, TNR: 0.8837
 
 Train Confusion matrix for RAC1P category Alaska Native:
 [[0 1]
  [1 0]]
 Test Confusion matrix for RAC1P category Alaska Native:
 [[1]]
-Train demographic parity difference for Alaska Native: 0.37132556849694953
-Train equalised odds difference for Alaska Native: 0.934386808656819
-Test demographic parity difference for Alaska Native: 0.8778026905829597
-Test equalised odds difference for Alaska Native: 0.6312849162011174
+Train rates for Alaska Native - TPR: 0.0000, TNR: 0.0000
+Not enough data to measure test rates
 
 Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[42  7]
@@ -1294,10 +1143,8 @@ Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[12  1]
  [ 2  2]]
-Train demographic parity difference for Am. Indian and/or Alaska Native: 0.37132556849694953
-Train equalised odds difference for Am. Indian and/or Alaska Native: 0.934386808656819
-Test demographic parity difference for Am. Indian and/or Alaska Native: 0.8778026905829597
-Test equalised odds difference for Am. Indian and/or Alaska Native: 0.6312849162011174
+Train rates for Am. Indian and/or Alaska Native - TPR: 0.4444, TNR: 0.8571
+Test rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.9231
 
 Train Confusion matrix for RAC1P category Asian:
 [[2123  621]
@@ -1305,10 +1152,8 @@ Train Confusion matrix for RAC1P category Asian:
 Test Confusion matrix for RAC1P category Asian:
 [[562 160]
  [131 469]]
-Train demographic parity difference for Asian: 0.37132556849694953
-Train equalised odds difference for Asian: 0.934386808656819
-Test demographic parity difference for Asian: 0.8778026905829597
-Test equalised odds difference for Asian: 0.6312849162011174
+Train rates for Asian - TPR: 0.7452, TNR: 0.7737
+Test rates for Asian - TPR: 0.7817, TNR: 0.7784
 
 Train Confusion matrix for RAC1P category Native Hawaiian:
 [[55 10]
@@ -1316,10 +1161,8 @@ Train Confusion matrix for RAC1P category Native Hawaiian:
 Test Confusion matrix for RAC1P category Native Hawaiian:
 [[18  4]
  [ 1  4]]
-Train demographic parity difference for Native Hawaiian: 0.37132556849694953
-Train equalised odds difference for Native Hawaiian: 0.934386808656819
-Test demographic parity difference for Native Hawaiian: 0.8778026905829597
-Test equalised odds difference for Native Hawaiian: 0.6312849162011174
+Train rates for Native Hawaiian - TPR: 0.5161, TNR: 0.8462
+Test rates for Native Hawaiian - TPR: 0.8000, TNR: 0.8182
 
 Train Confusion matrix for RAC1P category Other race alone:
 [[2720  191]
@@ -1327,10 +1170,8 @@ Train Confusion matrix for RAC1P category Other race alone:
 Test Confusion matrix for RAC1P category Other race alone:
 [[670  43]
  [113  66]]
-Train demographic parity difference for Other race alone: 0.37132556849694953
-Train equalised odds difference for Other race alone: 0.934386808656819
-Test demographic parity difference for Other race alone: 0.8778026905829597
-Test equalised odds difference for Other race alone: 0.6312849162011174
+Train rates for Other race alone - TPR: 0.3928, TNR: 0.9344
+Test rates for Other race alone - TPR: 0.3687, TNR: 0.9397
 
 Train Confusion matrix for RAC1P category Two+ races:
 [[742  91]
@@ -1338,15 +1179,13 @@ Train Confusion matrix for RAC1P category Two+ races:
 Test Confusion matrix for RAC1P category Two+ races:
 [[155  23]
  [ 46  80]]
-Train demographic parity difference for Two+ races: 0.37132556849694953
-Train equalised odds difference for Two+ races: 0.934386808656819
-Test demographic parity difference for Two+ races: 0.8778026905829597
-Test equalised odds difference for Two+ races: 0.6312849162011174
+Train rates for Two+ races - TPR: 0.6722, TNR: 0.8908
+Test rates for Two+ races - TPR: 0.6349, TNR: 0.8708
 
 
 --------------------SVM without sex---------------------
-Cross validation scores: ['0.7758', '0.7742', '0.7674', '0.7708', '0.7786']. Mean: 0.7734
-Training time: 24.7938 seconds
+Cross validation scores: [0.7758, 0.7742, 0.7674, 0.7708, 0.7786]. Mean: 0.7734
+Training time: 24.0766 seconds
 Accuracy: 0.7694
 Classification report:
               precision    recall  f1-score   support
@@ -1361,7 +1200,7 @@ weighted avg       0.77      0.77      0.77      7827
 Confusion matrix:
 [[3819  873]
  [ 932 2203]]
-Grid search time: 755.5727 seconds
+Grid search time: 870.7081 seconds
 Best parameters for SVC(kernel='linear'): {'C': 1, 'gamma': 'scale', 'kernel': 'rbf'}
 Accuracy: 0.7882
 Classification report:
@@ -1377,8 +1216,8 @@ weighted avg       0.79      0.79      0.79      7827
 Confusion matrix:
 [[3892  800]
  [ 858 2277]]
-Prediction correlation:
-['0.0779', '0.4731', '-0.3502', '-0.5142', '-0.1313', '-0.2896', '0.4106', '-0.1224']
+Prediction correlations:
+[0.0779, 0.4731, -0.3502, -0.5142, -0.1313, -0.2896, 0.4106, -0.1224]
 Permutation importance
  {'importances_mean': array([0.00480388, 0.05133512, 0.01755462, 0.02989651, 0.00562157,
        0.01801456, 0.06965632, 0.00130318]), 'importances_std': array([0.0011097 , 0.00181477, 0.00233019, 0.00143868, 0.00115694,
@@ -1397,26 +1236,21 @@ Train Confusion matrix F
 Test Confusion matrix F
  [[1948  455]
  [ 347  934]]
-Train demographic parity difference for Female: 0.021296377896790508
-Train equalised odds difference for Female: 0.04941114638930677
-Test demographic parity difference for Female: 0.03039839578709347
-Test equalised odds difference for Female: 0.03862581122657405
-
 Train Confusion matrix M
  [[7329 1444]
  [2383 5375]]
 Test Confusion matrix M
  [[1944  345]
  [ 511 1343]]
-Train demographic parity difference for Male: 0.021296377896790508
-Train equalised odds difference for Male: 0.04941114638930677
-Test demographic parity difference for Male: 0.03039839578709347
-Test equalised odds difference for Male: 0.03862581122657405
+Train demographic parity difference for SEX: 0.0213
+Train equalised odds difference for SEX: 0.0494
+Test demographic parity difference for SEX: 0.0304
+Test equalised odds difference for SEX: 0.0386
 
 
 -------------------SVM without rac1p--------------------
-Cross validation scores: ['0.7807', '0.7788', '0.7705', '0.7762', '0.7812']. Mean: 0.7775
-Training time: 54.1204 seconds
+Cross validation scores: [0.7807, 0.7788, 0.7705, 0.7762, 0.7812]. Mean: 0.7775
+Training time: 27.6919 seconds
 Accuracy: 0.7722
 Classification report:
               precision    recall  f1-score   support
@@ -1431,7 +1265,7 @@ weighted avg       0.77      0.77      0.77      7827
 Confusion matrix:
 [[3861  831]
  [ 952 2183]]
-Grid search time: 767.2183 seconds
+Grid search time: 792.5188 seconds
 Best parameters for SVC(kernel='linear'): {'C': 1, 'gamma': 'scale', 'kernel': 'rbf'}
 Accuracy: 0.7901
 Classification report:
@@ -1447,8 +1281,8 @@ weighted avg       0.79      0.79      0.79      7827
 Confusion matrix:
 [[3902  790]
  [ 853 2282]]
-Prediction correlation:
-['0.0801', '0.4671', '-0.3537', '-0.5129', '-0.1290', '-0.2853', '0.3983', '-0.1326']
+Prediction correlations:
+[0.0801, 0.4671, -0.3537, -0.5129, -0.1290, -0.2853, 0.3983, -0.1326]
 Permutation importance
  {'importances_mean': array([0.00217197, 0.05396704, 0.02064648, 0.03263064, 0.00615817,
        0.01750351, 0.05493804, 0.01310847]), 'importances_std': array([0.00047804, 0.00291635, 0.00365107, 0.0019132 , 0.00122386,
@@ -1467,10 +1301,8 @@ Train Confusion matrix for RAC1P category White:
 Test Confusion matrix for RAC1P category White:
 [[2263  487]
  [ 526 1573]]
-Train demographic parity difference for White: 0.3503508212951042
-Train equalised odds difference for White: 0.9199587770525592
-Test demographic parity difference for White: 0.8587443946188341
-Test equalised odds difference for White: 0.5754189944134078
+Train rates for White - TPR: 0.7216, TNR: 0.8155
+Test rates for White - TPR: 0.7494, TNR: 0.8229
 
 Train Confusion matrix for RAC1P category Black / African American:
 [[706 149]
@@ -1478,10 +1310,8 @@ Train Confusion matrix for RAC1P category Black / African American:
 Test Confusion matrix for RAC1P category Black / African American:
 [[198  53]
  [ 41  66]]
-Train demographic parity difference for Black / African American: 0.3503508212951042
-Train equalised odds difference for Black / African American: 0.9199587770525592
-Test demographic parity difference for Black / African American: 0.8587443946188341
-Test equalised odds difference for Black / African American: 0.5754189944134078
+Train rates for Black / African American - TPR: 0.5783, TNR: 0.8257
+Test rates for Black / African American - TPR: 0.6168, TNR: 0.7888
 
 Train Confusion matrix for RAC1P category American Indian:
 [[119  26]
@@ -1489,20 +1319,16 @@ Train Confusion matrix for RAC1P category American Indian:
 Test Confusion matrix for RAC1P category American Indian:
 [[37  6]
  [ 3 11]]
-Train demographic parity difference for American Indian: 0.3503508212951042
-Train equalised odds difference for American Indian: 0.9199587770525592
-Test demographic parity difference for American Indian: 0.8587443946188341
-Test equalised odds difference for American Indian: 0.5754189944134078
+Train rates for American Indian - TPR: 0.6000, TNR: 0.8207
+Test rates for American Indian - TPR: 0.7857, TNR: 0.8605
 
 Train Confusion matrix for RAC1P category Alaska Native:
 [[0 1]
  [1 0]]
 Test Confusion matrix for RAC1P category Alaska Native:
 [[1]]
-Train demographic parity difference for Alaska Native: 0.3503508212951042
-Train equalised odds difference for Alaska Native: 0.9199587770525592
-Test demographic parity difference for Alaska Native: 0.8587443946188341
-Test equalised odds difference for Alaska Native: 0.5754189944134078
+Train rates for Alaska Native - TPR: 0.0000, TNR: 0.0000
+Not enough data to measure test rates
 
 Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[42  7]
@@ -1510,10 +1336,8 @@ Train Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 Test Confusion matrix for RAC1P category Am. Indian and/or Alaska Native:
 [[12  1]
  [ 2  2]]
-Train demographic parity difference for Am. Indian and/or Alaska Native: 0.3503508212951042
-Train equalised odds difference for Am. Indian and/or Alaska Native: 0.9199587770525592
-Test demographic parity difference for Am. Indian and/or Alaska Native: 0.8587443946188341
-Test equalised odds difference for Am. Indian and/or Alaska Native: 0.5754189944134078
+Train rates for Am. Indian and/or Alaska Native - TPR: 0.4444, TNR: 0.8571
+Test rates for Am. Indian and/or Alaska Native - TPR: 0.5000, TNR: 0.9231
 
 Train Confusion matrix for RAC1P category Asian:
 [[2064  680]
@@ -1521,10 +1345,8 @@ Train Confusion matrix for RAC1P category Asian:
 Test Confusion matrix for RAC1P category Asian:
 [[561 161]
  [138 462]]
-Train demographic parity difference for Asian: 0.3503508212951042
-Train equalised odds difference for Asian: 0.9199587770525592
-Test demographic parity difference for Asian: 0.8587443946188341
-Test equalised odds difference for Asian: 0.5754189944134078
+Train rates for Asian - TPR: 0.7666, TNR: 0.7522
+Test rates for Asian - TPR: 0.7700, TNR: 0.7770
 
 Train Confusion matrix for RAC1P category Native Hawaiian:
 [[55 10]
@@ -1532,10 +1354,8 @@ Train Confusion matrix for RAC1P category Native Hawaiian:
 Test Confusion matrix for RAC1P category Native Hawaiian:
 [[18  4]
  [ 0  5]]
-Train demographic parity difference for Native Hawaiian: 0.3503508212951042
-Train equalised odds difference for Native Hawaiian: 0.9199587770525592
-Test demographic parity difference for Native Hawaiian: 0.8587443946188341
-Test equalised odds difference for Native Hawaiian: 0.5754189944134078
+Train rates for Native Hawaiian - TPR: 0.5161, TNR: 0.8462
+Test rates for Native Hawaiian - TPR: 1.0000, TNR: 0.8182
 
 Train Confusion matrix for RAC1P category Other race alone:
 [[2678  233]
@@ -1543,10 +1363,8 @@ Train Confusion matrix for RAC1P category Other race alone:
 Test Confusion matrix for RAC1P category Other race alone:
 [[663  50]
  [103  76]]
-Train demographic parity difference for Other race alone: 0.3503508212951042
-Train equalised odds difference for Other race alone: 0.9199587770525592
-Test demographic parity difference for Other race alone: 0.8587443946188341
-Test equalised odds difference for Other race alone: 0.5754189944134078
+Train rates for Other race alone - TPR: 0.4460, TNR: 0.9200
+Test rates for Other race alone - TPR: 0.4246, TNR: 0.9299
 
 Train Confusion matrix for RAC1P category Two+ races:
 [[718 115]
@@ -1554,10 +1372,8 @@ Train Confusion matrix for RAC1P category Two+ races:
 Test Confusion matrix for RAC1P category Two+ races:
 [[150  28]
  [ 40  86]]
-Train demographic parity difference for Two+ races: 0.3503508212951042
-Train equalised odds difference for Two+ races: 0.9199587770525592
-Test demographic parity difference for Two+ races: 0.8587443946188341
-Test equalised odds difference for Two+ races: 0.5754189944134078
+Train rates for Two+ races - TPR: 0.7258, TNR: 0.8619
+Test rates for Two+ races - TPR: 0.6825, TNR: 0.8427
 
 ---------------------------------------------------
 

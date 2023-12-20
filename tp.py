@@ -79,27 +79,32 @@ def preprocess():
         splits.append([x_train_scaled[:, 1:], x_test_scaled[:, 1:], y_train, y_test])
 
         if i == 0:
-            # Saving sex and race values of the original full data
-            global sex_column_train, rac1p_column_train, sex_column_test, rac1p_column_test
+            # Saving sex values of the original full data
+            global sex_column_train, sex_column_test
             sex_column_train = x_train_scaled[:, x.columns.get_loc('SEX')]
-            rac1p_column_train = x_train_scaled[:, x.columns.get_loc('RAC1P')]
             sex_column_test = x_test_scaled[:, x.columns.get_loc('SEX')]
-            rac1p_column_test = x_test_scaled[:, x.columns.get_loc('RAC1P')]
     
     return splits, k
 
 
-def calculate_metrics(y_train, y_train_res, sensitive_col_train, y_test, y_pred_best, sensitive_col_test, category):
+def fairlearn_metrics(y_train, y_train_res, sensitive_col_train, y_test, y_pred_best, sensitive_col_test, category):
+    num_train = len(sensitive_col_train)
+    num_test = len(sensitive_col_test)
+
     # fairness metrics
-    dp_diff_train = demographic_parity_difference(y_train, y_train_res, sensitive_features=sensitive_col_train)
-    eod_diff_train = equalized_odds_difference(y_train, y_train_res, sensitive_features=sensitive_col_train)
-    dp_diff_test = demographic_parity_difference(y_test, y_pred_best, sensitive_features=sensitive_col_test)
-    eod_diff_test = equalized_odds_difference(y_test, y_pred_best, sensitive_features=sensitive_col_test)
+    if num_train > 1:
+        dp_diff_train = demographic_parity_difference(y_train, y_train_res, sensitive_features=sensitive_col_train)
+        eod_diff_train = equalized_odds_difference(y_train, y_train_res, sensitive_features=sensitive_col_train)
+        print(f"Train demographic parity difference for {category}: {dp_diff_train:.4f}")
+        print(f"Train equalised odds difference for {category}: {eod_diff_train:.4f}")
+    else: print("Not enough data to measure train metrics")
     
-    print(f"Train demographic parity difference for {category}: {dp_diff_train}")
-    print(f"Train equalised odds difference for {category}: {eod_diff_train}")
-    print(f"Test demographic parity difference for {category}: {dp_diff_test}")
-    print(f"Test equalised odds difference for {category}: {eod_diff_test}\n")
+    if num_test > 1:
+        dp_diff_test = demographic_parity_difference(y_test, y_pred_best, sensitive_features=sensitive_col_test)
+        eod_diff_test = equalized_odds_difference(y_test, y_pred_best, sensitive_features=sensitive_col_test)
+        print(f"Test demographic parity difference for {category}: {dp_diff_test:.4f}")
+        print(f"Test equalised odds difference for {category}: {eod_diff_test:.4f}\n")
+    else: print("Not enough data to measure test metrics\n")
 
 
 def evaluate_model(model, grid_search, x_train, x_test, y_train, y_test, k, sexMetrics = True, rac1pMetrics = True):
@@ -107,7 +112,7 @@ def evaluate_model(model, grid_search, x_train, x_test, y_train, y_test, k, sexM
     cv_scores = cross_val_score(model, x_train, y_train, cv=k)
 
     # Print scores :)
-    print(f"Cross validation scores: {[f'{n:.4f}' for n in cv_scores]}. Mean: {cv_scores.mean():.4f}")
+    print(f"Cross validation scores: [{', '.join([f'{n:.4f}' for n in cv_scores])}]. Mean: {cv_scores.mean():.4f}")
 
     # Train the model and measure the runtime
     start = time.time()
@@ -145,7 +150,7 @@ def evaluate_model(model, grid_search, x_train, x_test, y_train, y_test, k, sexM
 
     # Partie 2.1
     correlations_pred = r_regression(x_test, y_pred_best)
-    print(f"Prediction correlation:\n{[f'{n:.4f}' for n in correlations_pred]}")
+    print(f"Prediction correlations:\n[{', '.join([f'{n:.4f}' for n in correlations_pred])}]")
 
     perm_imp = permutation_importance(best_model, x_test, y_test, random_state=42)
     print("Permutation importance\n", perm_imp)
@@ -155,57 +160,72 @@ def evaluate_model(model, grid_search, x_train, x_test, y_train, y_test, k, sexM
         print("----------------------sex feature metrics----------------------")
         female_indices_train = sex_mapping_train[sex_mapping_train == 'Female'].index
         female_indices_test = sex_mapping_test[sex_mapping_test == 'Female'].index
+        y_trainF = y_train.iloc[female_indices_train]
+        y_train_resF = y_train_res[female_indices_train]
+        y_testF = y_test.iloc[female_indices_test]
+        y_pred_bestF = y_pred_best[female_indices_test]
 
         # Female matrices
-        f_matrix_train = confusion_matrix(y_train.iloc[female_indices_train], y_train_res[female_indices_train])
-        f_matrix_test = confusion_matrix(y_test.iloc[female_indices_test], y_pred_best[female_indices_test])
+        f_matrix_train = confusion_matrix(y_trainF, y_train_resF)
+        f_matrix_test = confusion_matrix(y_testF, y_pred_bestF)
 
         print("Train Confusion matrix F\n", f_matrix_train)
         print("Test Confusion matrix F\n", f_matrix_test)
-        calculate_metrics(y_train, y_train_res, sex_column_train, y_test, y_pred_best, sex_column_test, "Female")
         
         male_indices_train = sex_mapping_train[sex_mapping_train == 'Male'].index
         male_indices_test = sex_mapping_test[sex_mapping_test == 'Male'].index
+        y_trainM = y_train.iloc[male_indices_train]
+        y_train_resM = y_train_res[male_indices_train]
+        y_testM = y_test.iloc[male_indices_test]
+        y_pred_bestM = y_pred_best[male_indices_test]
 
         # Male matrices
-        m_matrix_train = confusion_matrix(y_train.iloc[male_indices_train], y_train_res[male_indices_train])
-        m_matrix_test = confusion_matrix(y_test.iloc[male_indices_test], y_pred_best[male_indices_test])
+        m_matrix_train = confusion_matrix(y_trainM, y_train_resM)
+        m_matrix_test = confusion_matrix(y_testM, y_pred_bestM)
 
         print("Train Confusion matrix M\n", m_matrix_train)
         print("Test Confusion matrix M\n", m_matrix_test)
-        calculate_metrics(y_train, y_train_res, sex_column_train, y_test, y_pred_best, sex_column_test, "Male")
+        fairlearn_metrics(y_train, y_train_res, sex_column_train, y_test, y_pred_best, sex_column_test, "SEX")
 
     if rac1pMetrics:
         print("----------------------race feature metrics----------------------")
         for category in rac1p_categories.values():
             # Train/Test Confusion matrices for each race category
             category_indices_train = rac1p_mapping_train[rac1p_mapping_train == category].index
-            category_conf_matrix_train = confusion_matrix(y_train.iloc[category_indices_train], y_train_res[category_indices_train])
+            category_indices_test = rac1p_mapping_test[rac1p_mapping_test == category].index
+            y_trainCat = y_train.iloc[category_indices_train]
+            y_train_resCat = y_train_res[category_indices_train]
+            y_testCat = y_test.iloc[category_indices_test]
+            y_pred_bestCat = y_pred_best[category_indices_test]
+
+            category_conf_matrix_train = confusion_matrix(y_trainCat, y_train_resCat)
             print(f"Train Confusion matrix for RAC1P category {category}:\n{category_conf_matrix_train}")
 
-            category_indices_test = rac1p_mapping_test[rac1p_mapping_test == category].index
-            category_conf_matrix_test = confusion_matrix(y_test.iloc[category_indices_test], y_pred_best[category_indices_test])
+            category_conf_matrix_test = confusion_matrix(y_testCat, y_pred_bestCat)
             print(f"Test Confusion matrix for RAC1P category {category}:\n{category_conf_matrix_test}")
 
-            calculate_metrics(y_train, y_train_res, rac1p_column_train, y_test, y_pred_best, rac1p_column_test, category)
+            # Calculate True Positive/Negative Rates
+            if len(category_conf_matrix_train) > 1:
+                TPR_train = category_conf_matrix_train[1, 1] / (category_conf_matrix_train[1, 1] + category_conf_matrix_train[1, 0])
+                TNR_train = category_conf_matrix_train[0, 0] / (category_conf_matrix_train[0, 0] + category_conf_matrix_train[0, 1])
+                print(f"Train rates for {category} - TPR: {TPR_train:.4f}, TNR: {TNR_train:.4f}")
+            else: print("Not enough data to measure train rates")
+            if len(category_conf_matrix_test) > 1:
+                TPR_test = category_conf_matrix_test[1, 1] / (category_conf_matrix_test[1, 1] + category_conf_matrix_test[1, 0])
+                TNR_test = category_conf_matrix_test[0, 0] / (category_conf_matrix_test[0, 0] + category_conf_matrix_test[0, 1])
+                print(f"Test rates for {category} - TPR: {TPR_test:.4f}, TNR: {TNR_test:.4f}\n")
+            else: print("Not enough data to measure test rates\n")
+
 
 splits, k = preprocess()
 [[x_train, x_test, y_train, y_test], [x_train_no_sex, x_test_no_sex, y_train_no_sex, y_test_no_sex], [x_train_no_rac1p, x_test_no_rac1p, y_train_no_rac1p, y_test_no_rac1p]] = splits
 
 correlations = r_regression(x_train, y_train)
-print(f"Correlations :\n{[f'{n:.4f}' for n in correlations]}")
+print(f"Correlations:\n[{', '.join([f'{n:.4f}' for n in correlations])}]")
 
 
 ####################### Models evaluation #######################
 models = []
-
-param_grid_rf = {
-    'n_estimators': [50, 100],
-    'max_depth': [None, 10],
-    'min_samples_split': [2, 5]
-}
-grid_rf = GridSearchCV(RandomForestClassifier(), param_grid_rf, cv=k)
-models.append(("Random Forest", RandomForestClassifier(), grid_rf))
 
 param_grid_ada = {
     'n_estimators': [50, 100],
@@ -221,6 +241,14 @@ param_grid_gb = {
 }
 grid_gb = GridSearchCV(GradientBoostingClassifier(), param_grid_gb, cv=k)
 models.append(("Gradient", GradientBoostingClassifier(), grid_gb))
+
+param_grid_rf = {
+    'n_estimators': [50, 100],
+    'max_depth': [None, 10],
+    'min_samples_split': [2, 5]
+}
+grid_rf = GridSearchCV(RandomForestClassifier(), param_grid_rf, cv=k)
+models.append(("Random Forest", RandomForestClassifier(), grid_rf))
 
 param_grid_svm = {
     'C': [0.1, 1], #params régularisation
