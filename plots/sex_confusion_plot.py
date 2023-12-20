@@ -21,14 +21,14 @@ def plot_metrics(data, split, sexFeature):
         ax1.bar(bar_positions_women, precision_women, width=bar_width, label='Women', color='mediumpurple')
         ax1.bar(bar_positions_men, precision_men, width=bar_width, label='Men', color='mediumseagreen')
         ax1.set_ylabel('Précision')
-        ax1.set_title('Précision des modèles')
+        ax1.set_title('Précision des modèles sur SEX')
         ax1.legend()
 
         # Graphique du rappel
         ax2.bar(bar_positions_women, recall_women, width=bar_width, label='Women', color='mediumpurple')
         ax2.bar(bar_positions_men, recall_men, width=bar_width, label='Men', color='mediumseagreen')
         ax2.set_ylabel('Rappel')
-        ax2.set_title('Rappel des modèles')
+        ax2.set_title('Rappel des modèles sur SEX')
         ax2.legend()
 
         # Ajout ticks et grille
