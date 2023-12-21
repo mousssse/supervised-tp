@@ -1,0 +1,41 @@
+Métriques pour le dataset californien :
+Accuracy : 0.8185
+              precision    recall  f1-score   support
+
+       False       0.84      0.85      0.85     23018
+        True       0.78      0.77      0.78     16115
+
+    accuracy                           0.82     39133
+   macro avg       0.81      0.81      0.81     39133
+weighted avg       0.82      0.82      0.82     39133
+
+[[19604  3414]
+ [ 3687 12428]]
+
+Métriques pour les prédictions sur le Nevada :
+Accuracy : 0.7404
+              precision    recall  f1-score   support
+
+           0       0.91      0.69      0.79      7417
+           1       0.56      0.84      0.67      3368
+
+    accuracy                           0.74     10785
+   macro avg       0.73      0.77      0.73     10785
+weighted avg       0.80      0.74      0.75     10785
+
+[[5147 2270]
+ [ 530 2838]]
+
+Métriques pour les prédictions sur le Colorado :
+Accuracy : 0.7781
+              precision    recall  f1-score   support
+
+           0       0.86      0.74      0.80     18334
+           1       0.69      0.84      0.76     12972
+
+    accuracy                           0.78     31306
+   macro avg       0.78      0.79      0.78     31306
+weighted avg       0.79      0.78      0.78     31306
+
+[[13520  4814]
+ [ 2133 10839]]
